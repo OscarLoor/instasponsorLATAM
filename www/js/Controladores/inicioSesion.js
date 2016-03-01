@@ -1,5 +1,19 @@
-aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$http', '$ionicPlatform', function ($scope, $cordovaOauth, $http, $ionicPlatform) {
+aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$http', '$ionicPlatform','$ionicPopup','$timeout',function ($scope, $cordovaOauth, $http, $ionicPlatform, $ionicPopup, $timeout) {
  $scope.login = function () {
+  
+  //Muestro una pantalla de carga
+  var myPopup = $ionicPopup.show({
+   title: 'Cargando',
+    template: '<ion-spinner icon="spiral"></ion-spinner>'
+  });
+
+  myPopup.then(function(res) {
+    console.log('Tapped!', res);
+  });
+
+    
+  
+  //Configuracion de Inicio de Sesion
   var igClientId = "4414c79c1d9d4ee9b027bf208331ccd1";
   $ionicPlatform.ready(function () {
    $cordovaOauth.instagram(igClientId, ["scope=basic"]).then(function (result) {
@@ -16,10 +30,12 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
      $scope.idUsuario = data.data.id
     });
 
-
+    myPopup.close();
 
    }, function (error) {
     $scope.respuesta = error;
+    
+    myPopup.close();
    });
   });
 

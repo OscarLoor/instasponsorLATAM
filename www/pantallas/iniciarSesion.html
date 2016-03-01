@@ -1,3 +1,22 @@
+<ion-view>
+<ion-content class="contenedorContenidoIniciarSesion" overflow-scroll="true" padding="true">
+ <div id="iniciarSesion">
+ <h3>Iniciar Sesión</h3>
+ <img ng-click="login()" src="img/logoIniciarSesion.png"/>
+     <p>{{respuesta}}</p>
+     <p>Nombre: {{nombre}}</p>
+     <p>ID: {{idUsuario}}</p>
+     <img src="{{imagenDePerfil}}"/>
+  </div>
+  </ion-content>
+</ion-view>
+
+
+<!--
+<ion-nav-bar class="bar-stable" align-title="center">
+  <ion-nav-back-button class="button-icon ion-arrow-left-c">
+  </ion-nav-back-button>
+ </ion-nav-bar>
 <ion-view title="Inicio de Sesión">
 <ion-content class="has-header" overflow-scroll="true" padding="true">
    <button ng-click="login()">Iniciar Sesión</button>
@@ -6,4 +25,4 @@
      <p>ID: {{idUsuario}}</p>
      <img src="{{imagenDePerfil}}"/>
   </ion-content>
-</ion-view>
+</ion-view>-->
