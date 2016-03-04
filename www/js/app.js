@@ -24,5 +24,6 @@ aplicacion.run(function($ionicPlatform) {
 })
 aplicacion.config(function($ionicConfigProvider) {
     $ionicConfigProvider.backButton.text('')
+    $ionicConfigProvider.navBar.alignTitle('center')
 })
 

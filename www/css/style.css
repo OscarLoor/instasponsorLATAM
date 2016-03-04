@@ -92,16 +92,6 @@ body {
     height: 35px;
 }
 
-.title.title-center.header-item {
-    width: 100%;
-    left: 0px !important;
-    padding: 0px !important;
-    margin: 0px !important;
-    text-align: center;
-}
-.bar.bar-header {
-    text-align: center;
-}
 /*Seleccionar Pais*/
 .contenedorContenido {
     background-color: #262626;

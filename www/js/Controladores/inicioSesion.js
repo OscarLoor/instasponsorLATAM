@@ -30,6 +30,16 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
      $scope.idUsuario = data.data.id
     });
 
+    /*
+    Cambiar 
+    para
+    que
+    solo
+    cuando
+    este
+    correcto
+    muestre*/
+    
     myPopup.close();
 $ionicHistory.nextViewOptions({
       disableBack: true
