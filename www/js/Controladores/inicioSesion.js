@@ -1,4 +1,4 @@
-aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$http', '$ionicPlatform','$ionicPopup','$timeout',function ($scope, $cordovaOauth, $http, $ionicPlatform, $ionicPopup, $timeout) {
+aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$http', '$ionicPlatform','$ionicPopup','$timeout','$ionicHistory','$state',function ($scope, $cordovaOauth, $http, $ionicPlatform, $ionicPopup, $timeout,$ionicHistory,$state) {
  $scope.login = function () {
   
   //Muestro una pantalla de carga
@@ -31,11 +31,20 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
     });
 
     myPopup.close();
+$ionicHistory.nextViewOptions({
+      disableBack: true
+     });
 
+     $state.go('seleccionarPais'); //Redirige hacia una ruta
    }, function (error) {
     $scope.respuesta = error;
     
     myPopup.close();
+    $ionicHistory.nextViewOptions({
+      disableBack: true
+     });
+
+     $state.go('seleccionarPais'); //Redirige hacia una ruta
    });
   });
 

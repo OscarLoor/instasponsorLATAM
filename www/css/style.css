@@ -1,3 +1,11 @@
+/*
+Colores:
+Amarillo: fdc630
+Rojo: fd314e
+Verde: 70cb94
+Azul: 4289fd
+Beige: dad2c0
+*/
 /* Empty. Add your own CSS if you like */
 @font-face {
     font-family: MetaBookCE;
@@ -48,4 +56,73 @@ h1,h2,h3,h4,h5,h6{
     position: absolute !important;
     width: 100%;
     padding: 0px 10px 0px 0px;
+}
+
+body {
+    font-family: MetaBookCE;
+}
+
+/*Menu superior*/
+.bar.bar-header {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.ion-navicon::before {
+    border: 2px solid #fff;
+    border-radius: 34px;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+}
+
+.bar {
+    height: 48px;
+ border-bottom: 1px solid transparent;
+}
+
+.bar .button, .bar button {
+    padding: 0 2px;
+}
+.ion-android-arrow-back::before {
+    border: 2px solid #fff;
+    border-radius: 34px;
+    color: #fff;
+    width: 35px;
+    height: 35px;
+}
+
+.title.title-center.header-item {
+    width: 100%;
+    left: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    text-align: center;
+}
+.bar.bar-header {
+    text-align: center;
+}
+/*Seleccionar Pais*/
+.contenedorContenido {
+    background-color: #262626;
+    color: #fff;
+}
+
+#imagenPais {
+    width: 100%;
+    max-width: 640px;
+}
+
+#contenedorImagenPais {
+    text-align: center;
+}
+
+.pais {
+    border-top: 1px solid #515151;
+    padding: 20px;
+}
+
+.pais:active {
+    color: #fff !important;
+    background-color: #383737;
 }
