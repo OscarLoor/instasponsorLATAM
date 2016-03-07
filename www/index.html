@@ -66,7 +66,7 @@
   <div id="volverMenu">
    <a menu-close><i class="icon ion-chevron-right"></i> <p>Volver</p></a>
   </div>
-  
+
   <div id="opcionesMenu" style="background-color: #4b4b4b;">
    <p id="nombreMenu" style="padding: 10px 10px 4px;">Christina Knock</p>
    <div id="promopointsMenu" style="padding: 10px 10px 4px;">
@@ -112,6 +112,10 @@
 <div id="modalMio"></div>
 </ion-side-menus>
 
-
+  <script>
+   var valor = screen.width-275;
+   document.getElementById("modalMio").style.left = valor+" px";
+   console.log("Listo")
+  </script>
 </body>
 </html>
