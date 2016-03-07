@@ -12,7 +12,10 @@ Beige: dad2c0
     src: url(MetaBookCE-Caps.otf);
 }
 
-
+@font-face {
+    font-family: MetaBookRegular;
+    src: url(MetaBookCE-Roman.otf);
+}
 
 /*
 @font-face {
@@ -115,4 +118,189 @@ body {
 .pais:active {
     color: #fff !important;
     background-color: #383737;
+}
+
+/*Menu Principal*/
+#padre {
+	display: table;
+	height: 32%;
+ text-align: center;
+}
+#hijo {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#padreAbajo {
+    display: table;
+    height: 4%;
+    text-align: center;
+}
+
+.contenidoMenuPrincipal .icon {
+    font-size: 40px;
+}
+
+.contenidoMenuPrincipal p {
+    width: 95px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.contenidoMenuPrincipal #hijo img {
+    width: 39px;
+}
+
+.contenidoMenuPrincipal {
+    height: 100%;
+}
+
+.contenidoMenuPrincipal a {
+    color: #fff;
+}
+
+.contenidoMenuPrincipal a:active {
+    background-color: RGB(89, 89, 89) !important;
+}
+
+/*Menu Lateral*/
+.menu.menu-right {
+    background-color: #262626;
+    color: #fff;
+    
+}
+
+.menu-right a {
+    width: 100%;
+    float: left;
+    color: #fff;
+    height: 60px;
+    font-size: 17px;
+    margin-top: 7px;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.menu-right img {
+    width: 21px;
+    margin-right: 5px;
+    margin-left: 15px;
+}
+
+.menu-right .icon {
+    font-size: 25px;
+    margin-right: 5px;
+    margin-left: 15px;
+}
+
+.menu-right div {
+    float: left;
+    width: 100%;
+}
+
+#imagenDePerfil {
+    width: 100px;
+    margin: 0px;
+    padding: 0px;
+}
+
+#contenedorImagenDePerfil {
+    width: 100%;
+    text-align: center;
+}
+
+.scroll-bar-indicator {
+    opacity: 0 !important;
+}
+
+
+
+.scroll {
+    padding: 0px !important;
+}
+
+#opcionesMenu .activated {
+    border-top: 1px solid #464646;
+    border-bottom: 1px solid #535353;
+}
+
+#cerrarSesionMenu .activated {
+    color: #bababa;
+}
+.scroll-bar.scroll-bar-v {
+    height: 1px;
+    width: 1px;
+}
+
+#volverMenu {
+    background-color: #262626;
+    padding: 10px 10px 4px;
+    border-bottom: 2px solid #656565;
+}
+
+#volverMenu p {
+    margin-top: -1px;
+    margin-bottom: 0px;
+    padding: 8px 0px;
+}
+
+#cerrarSesionMenu {
+    background-color: #262626;
+    padding: 10px 10px 4px;
+    border-top: 2px solid #656565;
+}
+
+#nombreMenu {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+#volverMenu .icon {
+    float: left;
+    margin-right: 10px;
+}
+
+#cerrarSesionMenu .icon {
+    float: left;
+    margin-right: 10px;
+}
+
+#cerrarSesionMenu p {
+    margin-top: 3px;
+}
+
+.menu.menu-right {
+    font-family: MetaBookRegular;
+}
+
+
+
+#modalMio {
+    width: 100%;
+    height: 100%;
+    background-color: RGBA(255, 255, 255, 0.90);
+    z-index: -1;
+    position: absolute;
+    transform: translate3d(-100%, 0px, 0px);
+ transition: transform 200ms ease;
+}
+
+
+
+
+.menu-open #modalMio {
+    z-index: 9999;
+ transform: translate3d(-275px, 0px, 0px);
+}
+#volverMenu a {
+    padding: 0px;
+    margin: 0px;
+    height: auto;
+}
+
+#cerrarSesionMenu a {
+    padding: 0px;
+    margin: 0px;
+    height: auto;
 }

@@ -30,7 +30,8 @@
  <script src="js/Controladores/inicioSesion.js"></script>
    <script src="js/Controladores/seleccionarPaisControlador.js"></script>
    <script src="js/Controladores/promoPointsPorDiasControlador.js"></script>
-
+   <script src="js/Controladores/menuPrincipalControlador.js"></script>
+<script src="js/Controladores/menuLateralControlador.js"></script>
    <!-- Rutas js -->
  <script src="js/rutas.js"></script>
    
@@ -58,12 +59,59 @@
  </ion-side-menu-content>
 
  <!-- Right menu -->
- <ion-side-menu side="right">
-  <p>Right</p>
- </ion-side-menu>
+ <ion-side-menu side="right" overflow-scroll="true" ng-controller="menuLateralControlador">
+      
+   <ion-scroll zooming="true" direction="y" style="height:100%">
+                                          
+  <div id="volverMenu">
+   <a menu-close><i class="icon ion-chevron-right"></i> <p>Volver</p></a>
+  </div>
+  
+  <div id="opcionesMenu" style="background-color: #4b4b4b;">
+   <p id="nombreMenu" style="padding: 10px 10px 4px;">Christina Knock</p>
+   <div id="promopointsMenu" style="padding: 10px 10px 4px;">
+    <img style="float: left;" src="img/monedas.png" /> <p>6890</p>
+   </div>
+   <div id="contenedorImagenDePerfil">
+    <img id="imagenDePerfil" src="img/imagenDePerfil.png"/>
+   </div>
+   
+   <a>
+     <img src="img/monedas.png" /> Promo Points
+    </a>
+   
+   <a>
+     <i style="color:#fd314e" class="icon ion-ios-heart"></i> Promocionar Foto
+    </a>
 
-</ion-side-menus>
+    <a>
+     <i style="color:#70cb94" class="icon ion-person"></i> Promocionar Follows
+    </a>
+    <a>
+     <i style="color:#4289fd" class="icon ion-plus-circled"></i> Points Plus
+    </a>
+  
+   <a>
+     <i style="color:#262626" class="icon ion-wand"></i> Points Plus Corporate
+    </a>
+   
+    <a>
+     <i style="color:#dad2c0" class="icon ion-information-circled"></i> Promo Tips
+    </a>
+    
+
+  </div>
+  
+  <div id="cerrarSesionMenu">
+   <a ng-click="cerrarSesion()" menu-close><i class="icon ion-log-out"></i> <p>Cerrar Sesión</p></a>
+  </div>             
+  </ion-scroll>
  
+    </ion-side-menu>
+ 
+<div id="modalMio"></div>
+</ion-side-menus>
+
 
 </body>
 </html>

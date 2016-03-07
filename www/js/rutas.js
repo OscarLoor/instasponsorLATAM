@@ -18,6 +18,12 @@ aplicacion.config(function ($stateProvider, $urlRouterProvider) {
   templateUrl: 'pantallas/promoPointsPorDias.html',
   controller: 'promoPointsPorDiasControlador'
  });
+ 
+  $stateProvider.state('menuPrincipal', {
+  url: '/menuPrincipal',
+  templateUrl: 'pantallas/menuPrincipal.html',
+  controller: 'menuPrincipalControlador'
+ });
 
 
 
