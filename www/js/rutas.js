@@ -24,7 +24,25 @@ aplicacion.config(function ($stateProvider, $urlRouterProvider) {
   templateUrl: 'pantallas/menuPrincipal.html',
   controller: 'menuPrincipalControlador'
  });
-
+ 
+ /*PromoPoints*/
+  $stateProvider.state('promoPointsMenu', {
+  url: '/promoPointsMenu',
+  templateUrl: 'pantallas/promoPoints/menu.html',
+  controller: 'promoPointsMenuControlador'
+ });
+ 
+ $stateProvider.state('promoPointsLike', {
+  url: '/promoPointsLike',
+  templateUrl: 'pantallas/promoPoints/like.html',
+  controller: 'promoPointsLikeControlador'
+ });
+ 
+ $stateProvider.state('promoPointsFollow', {
+  url: '/promoPointsFollow',
+  templateUrl: 'pantallas/promoPoints/follow.html',
+  controller: 'promoPointsFollowControlador'
+ });
 
 
 });

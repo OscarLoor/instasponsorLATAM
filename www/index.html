@@ -32,6 +32,12 @@
    <script src="js/Controladores/promoPointsPorDiasControlador.js"></script>
    <script src="js/Controladores/menuPrincipalControlador.js"></script>
 <script src="js/Controladores/menuLateralControlador.js"></script>
+   
+   <!--Promo Points Controladores-->
+   <script src="js/Controladores/promoPoints/promoPointsMenuControlador.js"></script>
+   <script src="js/Controladores/promoPoints/promoPointsLikeControlador.js"></script>
+   <script src="js/Controladores/promoPoints/promoPointsFollowControlador.js"></script>
+   
    <!-- Rutas js -->
  <script src="js/rutas.js"></script>
    
@@ -44,7 +50,8 @@
  <ion-side-menu-content>
 
   <ion-nav-bar align-title="center">
-   <ion-nav-back-button class="button-icon ion-android-arrow-back">
+   <ion-nav-back-button class="button-clear">
+    <i class="ion-android-arrow-back"></i>
             </ion-nav-back-button>
    <ion-nav-buttons side="right">
     <!-- Toggle right side menu -->
@@ -76,7 +83,7 @@
     <img id="imagenDePerfil" src="img/imagenDePerfil.png"/>
    </div>
    
-   <a>
+   <a menu-close ng-click="promoPointsAbrir()">
      <img src="img/monedas.png" /> Promo Points
     </a>
    

@@ -87,12 +87,17 @@ body {
 .bar .button, .bar button {
     padding: 0 2px;
 }
-.ion-android-arrow-back::before {
+
+.back-button .ion-android-arrow-back::before {
+
+    content: "";
     border: 2px solid #fff;
     border-radius: 34px;
     color: #fff;
     width: 35px;
     height: 35px;
+    font-size: 29px;
+
 }
 
 /*Seleccionar Pais*/
@@ -304,4 +309,73 @@ body {
     padding: 0px;
     margin: 0px;
     height: auto;
+}
+
+/*Promo Points Menu*/
+.promoPointsMenu p {
+    width: 90%;
+}
+
+.promoPointsMenu #padre #hijo {
+    padding: 20px 0px;
+}
+
+.promoPointsMenu a {
+    color: #1e1e1e;
+}
+
+.descripcion .icon {
+    font-size: 15px;
+}
+
+.descripcion .icon::before {
+    margin-right: 5px;
+}
+
+.descripcion div {
+    color: #1e1e1e;
+ font-family: MetaBookRegular;
+}
+
+.contenidoMenuPrincipal a:active {
+    background-color: RGB(89, 89, 89) !important;
+    color: #fff;
+}
+
+/*PromoPoints Like*/
+.promoPointsLike #imagenDePerfil {
+    width: 90% !important;
+    height: auto !important;
+    max-width: 120px !important;
+}
+
+.promoPointsLike p {
+    width: 100% !important;
+    text-align: left !important;
+    margin: 2px 0px !important;
+}
+.fotos div {
+    width: 100%;
+}
+.fotos div div {
+    margin: auto;
+    width: 100%;
+}
+
+.fotos div div div {
+    width: 44%;
+    height: 150px;
+    background-size: cover !important;
+    background-position: center !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    float: left;
+}
+.fotos {
+    width: 100%;
+    float: left;
+    background-color: #fff;
+}
+
+.promoPointsLike #padre {
+    height: 156px;
 }
