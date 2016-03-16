@@ -1,0 +1,33 @@
+<ion-view title="¡Duplica tus puntos!">
+ <ion-content class="contenedorContenido" overflow-scroll="true">
+
+  <div class="contenidoMenuPrincipal promoPointsMenu">
+
+      <div style="width:100%;" id="padre" class="descripcion duplicaTusPuntosUno">
+    <div style="background-color:#fff; width:100%;" id="hijo">
+     <p>¡Por cada foto que te gusta o cuenta que sigas, acumula el doble de Promo Points, durante UN MES!</p>
+     <i style="font-size: 40px;" class="icon ion-android-done-all"></i>
+    </div>
+
+   </div>
+
+   <div ng-hide="lecturaBaseDeDatos.length!=0" style="width: 100%; text-align: center; padding: 20px 0px ! important; background-color: red;">
+    No existen registros en la base de datos
+   </div>
+
+   <div ng-repeat="registroSimple in lecturaBaseDeDatos" style="width:100%;" id="padre" class="duplicaTusPuntosDos">
+    <a ng-click="pagosAbrir({{registroSimple.precio}},'Duplica Tus Puntos')" style="background-color: #2f2f2f; width:100%; color:#fff;" id="hijo">
+     <i style="color:#fd314e;" class="icon ion-ios-cart"></i>
+     <p>${{registroSimple.precio}}</p>
+    </a>
+   </div>
+
+   <div style="width:100%;" id="padreAbajo">
+    <div style="background-color:#373737; width:50%;" id="hijo"></div>
+    <div style="background-color:#404040; width:50%;" id="hijo"></div>
+   </div>
+
+
+  </div>
+ </ion-content>
+</ion-view>

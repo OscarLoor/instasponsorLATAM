@@ -4,12 +4,12 @@
   <div class="contenidoMenuPrincipal promoPointsLike">
 
    <div style="width:100%; color: #1e1e1e;" id="padre">
-    <div style="background-color: #fdc630; width:30%;" id="hijo">
+    <div style="background-color: #2f2f2f; width:30%;" id="hijo">
      <img id="imagenDePerfil" src="img/imagenDePerfil.png" />
     </div>
-    <div style="background-color: #fdc630; width:70%; font-family: MetaBookRegular; padding: 0px 5px;" id="hijo">
+    <div style="background-color: #2f2f2f; width:70%; font-family: MetaBookRegular; padding: 0px 5px; color:#fff;" id="hijo">
      <p style="font-size: 20px;">Christina Knock</p>
-     <div style="margin-top: 8px;"><img style="width: 21px; height: auto; float: left; margin-right: 5px;" src="img/monedasNegras.png" />
+     <div style="margin-top: 8px;"><img style="width: 21px; height: auto; float: left; margin-right: 5px;" src="img/monedasBlancas.png" />
       <p>6890</p>
      </div>
     </div>
@@ -21,7 +21,7 @@
 
       <div class="imagenesFotos" style="background: url(img/fotosInstagram/2.jpg); margin-left: 4%; margin-right: 4%; margin-top: 5%; margin-bottom: 2.5%;"></div>
      <div class="imagenesFotos" style="background: url(img/fotosInstagram/1.jpg); margin-right: 4%; margin-top: 5%; margin-bottom: 2.5%;"></div>
-     
+
     </div>
 
     <div class="filaFotos">
@@ -34,16 +34,20 @@
 
    </div>
 
-   <div class="botones" style="width: 100%; height: 15%;" id="padre">
-    <a style="background-color: #fdce4f; width: 50%;" id="hijo">
+   <div ng-hide="lecturaBaseDeDatos.length!=0" style="width: 100%; text-align: center; padding: 20px 0px ! important; background-color: red;">
+    No existen registros en la base de datos
+   </div>
+
+   <div ng-repeat="registroSimple in lecturaBaseDeDatos" class="botones" style="width: 100%; height: 15%;" id="padre">
+    <a style="background-color: #373737; width: 50%;" id="hijo">
      <div>
-      <span style="font-size: 24px;">FOLLOW</span>
+      <span style="font-size: 24px;">FOLLOW (+{{registroSimple.promoPoints}})</span>
       <i style="font-size: 25px; margin-left: 5px; color:#70cb94" class="icon ion-person"></i>
      </div>
 
     </a>
 
-    <a style="background-color: #fed76e; width: 50%;" id="hijo">
+    <a style="background-color: #404040; width: 50%;" id="hijo">
      <div>
       <span style="font-size: 24px;">NEXT</span>
       <i style="font-size: 25px; margin-left: 5px;" class="icon ion-chevron-right"></i>
@@ -55,8 +59,8 @@
 
 
    <div style="width:100%;" id="padreAbajo">
-    <div style="background-color:#fee08d; width:50%;" id="hijo"></div>
-    <div style="background-color:#fee8ac; width:50%;" id="hijo"></div>
+    <div style="background-color:#494949; width:50%;" id="hijo"></div>
+    <div style="background-color:#515151; width:50%;" id="hijo"></div>
    </div>
 
 

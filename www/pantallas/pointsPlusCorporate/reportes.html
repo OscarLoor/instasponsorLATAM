@@ -1,0 +1,126 @@
+<ion-view title="Reportes">
+ <ion-content class="contenedorContenido" overflow-scroll="true">
+
+  <div class="contenidoMenuPrincipal promoPointsMenu">
+<!--
+      <div style="width:100%; height: 48% !important;" id="padre" class="descripcion duplicaTusPuntosUno">
+    <div style="background-color:#fff; width:100%;" id="hijo">
+     <p>Promociones del mes</p>
+     <i style="font-size: 40px;" class="icon ion-speakerphone"></i>
+    </div>
+
+   </div>-->
+
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:33.33%; color:#fd314e; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Silver</p>
+    </div>
+
+    <div style="background-color: #373737; width:33.33%; color:#fdc630; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Gold</p>
+    </div>
+
+    <div style="background-color: #404040; width:33.33%; color:#70cb94; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Black</p>
+    </div>
+   </div>
+
+   <!--Elemento de Fila Uno-->
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>No. de Likes</p>
+    </div>
+
+    <div style="background-color: #373737; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>No. de Likes</p>
+    </div>
+
+    <div style="background-color: #404040; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>No. de Likes</p>
+    </div>
+   </div> <!--Elemento de Fila Uno-->
+
+   <!--Elemento de Fila Uno-->
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>No. de Follows</p>
+    </div>
+
+    <div style="background-color: #373737; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>No. de Follows</p>
+    </div>
+
+    <div style="background-color: #404040; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>No. de Follows</p>
+    </div>
+   </div> <!--Elemento de Fila Uno-->
+
+   <!--Elemento de Fila Uno-->
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>-</p>
+    </div>
+
+    <div style="background-color: #373737; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Fotos + populares</p>
+    </div>
+
+    <div style="background-color: #404040; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Fotos + populares</p>
+    </div>
+   </div> <!--Elemento de Fila Uno-->
+
+   <!--Elemento de Fila Uno-->
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>-</p>
+    </div>
+
+    <div style="background-color: #373737; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>-</p>
+    </div>
+
+    <div style="background-color: #404040; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Horas + populares</p>
+    </div>
+   </div> <!--Elemento de Fila Uno-->
+
+   <!--Elemento de Fila Uno-->
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>-</p>
+    </div>
+
+    <div style="background-color: #373737; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>-</p>
+    </div>
+
+    <div style="background-color: #404040; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Días + populares</p>
+    </div>
+   </div> <!--Elemento de Fila Uno-->
+
+   <div ng-hide="lecturaBaseDeDatos.length!=0" style="width: 100%; text-align: center; padding: 20px 0px ! important; background-color: red;">
+    No existen registros en la base de datos
+   </div>
+
+   <!--Elemento de Fila Dos-->
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <a ng-repeat="registroSimple in lecturaBaseDeDatos" class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precio}},'Reportes - {{registroSimple.descripcion}}')" style="background-color: #494949; width:33.33%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
+     <p style="color:#fff;">${{registroSimple.precio}}</p>
+    </a>
+   </div> <!--Elemento de Fila Dos-->
+
+
+
+
+   <div style="width:100%;" id="padreAbajo">
+    <div style="background-color:#515151; width:50%;" id="hijo"></div>
+    <div style="background-color:#5a5a5a; width:50%;" id="hijo"></div>
+   </div>
+
+
+  </div>
+ </ion-content>
+</ion-view>

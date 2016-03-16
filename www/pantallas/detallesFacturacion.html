@@ -1,0 +1,66 @@
+<ion-view title="Detalles Facturación">
+  <ion-content class="contenedorContenido" overflow-scroll="true">
+    <div class="list" style="padding: 20px; background-color: rgb(47, 47, 47); margin: 0px !important;">
+
+      <label class="elementoFormulario">
+        <span>Nombre*</span>
+        <input ng-model="datosUsuario.nombre" type="text">
+      </label>
+
+      <label class="elementoFormulario">
+        <span>Apellido*</span>
+        <input ng-model="datosUsuario.apellido" type="text">
+      </label>
+
+      <label class="elementoFormulario">
+        <span>Email*</span>
+        <input ng-model="datosUsuario.email" type="email">
+      </label>
+
+      <label class="elementoFormulario">
+        <span>Repite tu email*</span>
+        <input ng-model="datosUsuario.emailVerificacion" type="email" >
+      </label>
+
+      <label class="elementoFormulario">
+        <span>Teléfono*</span>
+        <input ng-model="datosUsuario.telefono" type="text" >
+      </label>
+
+      <label class="elementoFormulario" style="margin-bottom: 10px; margin-top: 10px;">
+        <span>País*</span>
+        <ion-radio ng-model="datosUsuario.pais" ng-value="'ecuador'">Ecuador</ion-radio>
+        <ion-radio ng-model="datosUsuario.pais" ng-value="'peru'">Perú</ion-radio>
+        <ion-radio ng-model="datosUsuario.pais" ng-value="'colombia'">Colombia</ion-radio>
+        <ion-radio ng-model="datosUsuario.pais" ng-value="'panama'">Panamá</ion-radio>
+        <ion-radio ng-model="datosUsuario.pais" ng-value="'mexico'">México</ion-radio>
+      </label>
+
+      <label class="elementoFormulario">
+        <span>Provincia*</span>
+        <input ng-model="datosUsuario.provincia" type="text">
+      </label>
+
+      <label class="elementoFormulario">
+        <span>Ciudad*</span>
+        <input ng-model="datosUsuario.ciudad" type="text">
+      </label>
+
+      <label class="elementoFormulario" style="margin-bottom: 50px;">
+        <span>Dirección*</span>
+        <input ng-model="datosUsuario.direccion" type="text">
+      </label>
+
+      <ion-checkbox ng-model="datosUsuario.guardarInformacion">Guardar información</ion-checkbox>
+
+
+    </div>
+    <button ng-click="seleccionarFormaDePago(datosUsuario)" class="seleccionarForma">
+      <i style="color: #4289fd; font-size: 18px;" class="icon ion-pricetag"> Seleccionar forma de pago</i>
+    </button>
+    <div style="width:100%;" id="padreAbajo">
+     <div style="background-color:#494949; width:50%;" id="hijo"></div>
+     <div style="background-color:#515151; width:50%;" id="hijo"></div>
+    </div>
+  </ion-content>
+</ion-view>

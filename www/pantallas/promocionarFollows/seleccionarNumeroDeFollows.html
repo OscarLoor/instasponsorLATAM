@@ -1,0 +1,57 @@
+<ion-view title="Promocionar Follows">
+ <ion-content class="contenedorContenido" overflow-scroll="true">
+
+  <div class="contenidoMenuPrincipal promoPointsMenu">
+
+      <div style="width:100%; height: 30% !important; !important;" id="padre" class="descripcion duplicaTusPuntosUno">
+    <div style="background-color:#70cb94; width:100%;" id="hijo">
+     <p>¿Cuántos followers buscas?</p>
+     <p>Promo Points Disponibles: 6890 <img style="width: 17px;" src="img/monedas.png" /> </p>
+    </div>
+
+   </div>
+
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:50%; color: #fff;" id="hijo">
+     <p>Followers <i style="color:#70cb94; font-size: 20px !important;" class="icon ion-person"></i></p>
+    </div>
+
+    <div style="background-color: #2f2f2f; width:50%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Promo Points</p>
+    </div>
+   </div>
+
+   <div ng-hide="lecturaBaseDeDatos.length!=0" style="width: 100%; text-align: center; padding: 20px 0px ! important; background-color: red;">
+    No existen registros en la base de datos
+   </div>
+
+   <!--Elemento de Fila-->
+   <div ng-repeat="registroSimple in lecturaBaseDeDatos" style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color:#373737; width:50%;" id="hijo">
+     <p>{{registroSimple.minimo}}-{{registroSimple.maximo}}</p>
+    </div>
+
+    <a class="precioSuscribete" ng-click="confirmarNumeroDeFollows({{registroSimple.promoPoints}},{{registroSimple.valido}})" style="background-color: #404040; width:50%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <img src="img/monedas.png" />
+     <p style="color:#fff">{{registroSimple.promoPoints}}</p>
+    </a>
+   </div> <!--Elemento de Fila-->
+
+   <div style="width:100%;" id="padre" class="descripcion pointsPlusElementosMenu">
+    <div style="background-color:#fff; width:100%;" id="hijo">
+     <i style="" class="icon ion-information-circled">Más Información:</i>
+     <p>Olvídate de las cuentas fantasma o seguidores pasivos. Promociona tu perfil localmente aumentando tus seguidores por zona. </p>
+
+    </div>
+
+   </div>
+
+   <div style="width:100%;" id="padreAbajo">
+    <div style="background-color:#5a5a5a; width:50%;" id="hijo"></div>
+    <div style="background-color:#626262; width:50%;" id="hijo"></div>
+   </div>
+
+
+  </div>
+ </ion-content>
+</ion-view>

@@ -65,6 +65,11 @@ body {
     font-family: MetaBookCE;
 }
 
+#iniciarSesion img:active {
+    filter: alpha(opacity=80);
+    -moz-opacity: .80;
+    opacity: .20;
+}
 /*Menu superior*/
 .bar.bar-header {
     background-color: #1e1e1e;
@@ -172,7 +177,7 @@ body {
 .menu.menu-right {
     background-color: #262626;
     color: #fff;
-    
+
 }
 
 .menu-right a {
@@ -385,4 +390,148 @@ body {
 
 .promoPointsLikeContenedor {
     background-color: #fff;
+}
+
+/*Points Plus*/
+.duplicaTusPuntosDos {
+    height: 23% !important;
+}
+
+.duplicaTusPuntosUno {
+    height: 69% !important;
+}
+
+.pointsPlusElementosMenu {
+    height: 19.2% !important;
+}
+
+/*Points Plus - Suscribete*/
+
+.elementoFila {
+    height: 24% !important;
+}
+
+/*Promocionar Foto*/
+.imagenesFotos:active {
+    filter: alpha(opacity=80);
+    -moz-opacity: .80;
+    opacity: .20;
+}
+/*Tipos de pago*/
+.labelPais {
+    padding: 20px;
+}
+
+.item-stacked-label {
+    background-color: #fff !important;
+}
+
+.item-content {
+    background-color: #626262 !important;
+    color: #fff;
+}
+
+.tipoDePago:active {
+    color: #000;
+    background-color: #fff !important;
+}
+
+.Formulario {
+    background-color: #373737;
+}
+
+.tituloCampoFormulario {
+    background-color: #2f2f2f;
+    text-align: center;
+    padding: 10%;
+    float: left;
+    width: 100%;
+}
+#descripcionAdicional {
+    padding: 10%;
+    float: left;
+    width: 100%;
+}
+
+.elementoFormulario input {
+    width: 100%;
+    border: none !important;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 0px 10px;
+    color: #fff;
+    font-family: MetaBookCE !important;
+    margin: 10px 0px;
+}
+
+.Formulario {
+    padding: 20px 20px 20px 20px;
+    float: left;
+    width: 100%;
+}
+.elementoFormulario span {
+    width: 100% !important;
+    float: left;
+}
+
+.elementoFormulario {
+    float: left;
+    width: 100%;
+}
+
+input.ng-valid {
+    border-color: green;
+}
+
+input.ng-invalid {
+    border-color: red !important;
+    box-shadow: none !important;
+}
+
+input.ng-untouched {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: none !important;
+}
+
+.elementoFormulario .item {
+    width: 100%;
+    border: none !important;
+    background-color: #373737 !important;
+    padding: 0px 10px !important;
+    color: #fff;
+    font-family: MetaBookCE !important;
+    margin: 5px 0px !important;
+    float: left;
+}
+
+.item-content {
+    background-color: transparent !important;
+    color: #fff;
+}
+
+.list .item {
+    background-color: transparent;
+    font-size: 15px;
+}
+
+.seleccionarForma {
+    width: 100% !important;
+    padding: 20px;
+    background-color: #404040;
+    border: none;
+    color: #fff;
+    font-family: MetaBookCE;
+}
+
+.checkbox input:checked::before, .checkbox input:checked + .checkbox-icon::before {
+    background: #4289fd;
+    border-color: #4289fd;
+}
+
+.seleccionarForma:active {
+    background-color: #fff;
+}
+
+#finalizarCompra:active {
+    background-color: #fff !important;
 }

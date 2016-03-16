@@ -1,0 +1,23 @@
+<ion-view title="Forma de Pago">
+ <ion-content class="contenedorContenido" overflow-scroll="true">
+  <div class="contenido">
+   <div class="tipoDePago" style="background-color: rgb(47, 47, 47); text-align: center; padding: 24% 20px;" ng-click="tipoDePago('tarjetaDeCredito')">
+     <i style="color:#fdc630; font-size: 50px;" class="icon ion-card"></i>
+    <p style="color:#fdc630">Tarjeta de Crédito</p>
+    <p>Tarjetas de crédito aceptadas (Visa, Mastercard, Discover, American Express, Diners Club)</p>
+   </div>
+
+   <div class="tipoDePago"  style="background-color: #373737; text-align: center; padding: 24% 20px;" ng-click="tipoDePago('depositoTransferencia')">
+     <i style="color:#fd314e; font-size: 50px;" class="icon ion-cash"></i>
+    <p style="color:#fd314e">Depósito o Transferencia Bancaria </p>
+    <p>Realiza tu pago o transferencia directamente en cualquiera de nuestras cuentas bancarias (Pichincha, Guayaquil, Internacional y del Austro). Por favor usa la referencia del pedido como referencia de pago. El pedido no será enviado hasta que el importe completo haya sido recibido en nuestra cuenta. Hacer clic en “REALIZAR EL PEDIDO”, para que puedas vizualizar los números de cuenta bancaria de tu preferencia.</p>
+   </div>
+
+
+  </div>
+  <div style="width:100%;" id="padreAbajo">
+   <div style="background-color:#404040; width:50%;" id="hijo"></div>
+   <div style="background-color:#494949; width:50%;" id="hijo"></div>
+  </div>
+ </ion-content>
+</ion-view>

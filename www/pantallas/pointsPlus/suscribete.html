@@ -1,0 +1,64 @@
+<ion-view title="Suscríbete">
+ <ion-content class="contenedorContenido" overflow-scroll="true">
+
+  <div class="contenidoMenuPrincipal promoPointsMenu">
+
+      <div style="width:100%; height: 48% !important;" id="padre" class="descripcion duplicaTusPuntosUno">
+    <div style="background-color:#fff; width:100%;" id="hijo">
+     <p>¡Suscríbete y gana más puntos cada mes!</p>
+     <i style="font-size: 40px;" class="icon ion-person-add"></i>
+    </div>
+
+   </div>
+
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:50%; color: #fff;" id="hijo">
+     <p>Promo Points <img style="width: 17px; height: auto;" src="img/monedasBlancas.png" /></p>
+    </div>
+
+    <div style="background-color: #2f2f2f; width:50%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Precio</p>
+    </div>
+   </div>
+
+   <div ng-hide="suscripciones.length!=0" style="width: 100%; text-align: center; padding: 20px 0px ! important; background-color: red;">
+    No existen registros en la base de datos
+   </div>
+
+   <!--Elemento de Fila-->
+   <div ng-repeat="suscripcion in suscripciones" style="width:100%;" id="padre" class="elementoFila">
+
+    <!--Si es Par-->
+    <div ng-if="($index%2)==0" style="background-color:#373737; width:50%;" id="hijo">
+     <p>{{suscripcion.promoPoints}}</p>
+    </div>
+
+    <!--Si es impar-->
+    <div ng-if="($index%2)!=0" style="background-color: #494949; width:50%;" id="hijo">
+     <p>{{suscripcion.promoPoints}}</p>
+    </div>
+
+    <!--Si es Par-->
+    <a ng-if="($index%2)==0" class="precioSuscribete" ng-click="pagosAbrir({{suscripcion.precio}},'Suscripción - {{suscripcion.promoPoints}} PromoPoints')" style="background-color: #404040; width:50%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
+     <p style="color:#fff">${{suscripcion.precio}}</p>
+    </a>
+
+     <!--Si es impar-->
+        <a ng-if="($index%2)!=0" class="precioSuscribete" ng-click="pagosAbrir({{suscripcion.precio}},'Suscripción - {{suscripcion.promoPoints}} PromoPoints')" style="background-color: #515151; width:50%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
+     <p style="color:#fff;">${{suscripcion.precio}}</p>
+    </a>
+
+   </div> <!--Elemento de Fila-->
+
+
+   <div style="width:100%;" id="padreAbajo">
+    <div style="background-color:#5a5a5a; width:50%;" id="hijo"></div>
+    <div style="background-color:#626262; width:50%;" id="hijo"></div>
+   </div>
+
+
+  </div>
+ </ion-content>
+</ion-view>

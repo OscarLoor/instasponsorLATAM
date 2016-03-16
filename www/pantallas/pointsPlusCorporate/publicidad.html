@@ -1,0 +1,63 @@
+<ion-view title="Publicidad">
+ <ion-content class="contenedorContenido" overflow-scroll="true">
+
+  <div class="contenidoMenuPrincipal promoPointsMenu">
+<!--
+      <div style="width:100%; height: 48% !important;" id="padre" class="descripcion duplicaTusPuntosUno">
+    <div style="background-color:#fff; width:100%;" id="hijo">
+     <p>Promociones del mes</p>
+     <i style="font-size: 40px;" class="icon ion-speakerphone"></i>
+    </div>
+
+   </div>-->
+
+   <div style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color: #2f2f2f; width:33.33%; color: #fff;" id="hijo">
+     <p>Exposición <i style="color:#fd314e; font-size: 17px;" class="icon ion-android-time"></i></p>
+    </div>
+
+    <div style="background-color: #2f2f2f; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Semanal</p>
+    </div>
+
+    <div style="background-color: #2f2f2f; width:33.33%; color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <p>Mensual</p>
+    </div>
+   </div>
+
+   <div ng-hide="lecturaBaseDeDatos.length!=0" style="width: 100%; text-align: center; padding: 20px 0px ! important; background-color: red;">
+    No existen registros en la base de datos
+   </div>
+
+
+   <!--Elemento de Fila Uno-->
+   <div ng-repeat="registroSimple in lecturaBaseDeDatos" style="width:100%;" id="padre" class="elementoFila">
+    <div style="background-color:#373737; width:33.33%;" id="hijo">
+     <p>{{registroSimple.descripcion}}</br>{{registroSimple.tiempo}} seg.</p>
+    </div>
+
+    <a class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precioSemanal}},'Publicidad - {{registroSimple.descripcion}} - Semanal')" style="background-color: #404040; width:33.33%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
+     <p style="color:#fff">${{registroSimple.precioSemanal}}</p>
+    </a>
+
+    <a class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precioMensual}},'Publicidad - {{registroSimple.descripcion}} - Mensual')" style="background-color: #404040; width:33.33%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+     <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
+     <p style="color:#fff">${{registroSimple.precioMensual}}</p>
+    </a>
+
+   </div> <!--Elemento de Fila Uno-->
+
+
+
+
+
+   <div style="width:100%;" id="padreAbajo">
+    <div style="background-color:#5a5a5a; width:50%;" id="hijo"></div>
+    <div style="background-color:#626262; width:50%;" id="hijo"></div>
+   </div>
+
+
+  </div>
+ </ion-content>
+</ion-view>

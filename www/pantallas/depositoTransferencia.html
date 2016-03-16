@@ -1,0 +1,23 @@
+<ion-view title="Dep. o Trans.">
+ <ion-content class="contenedorContenido" overflow-scroll="true">
+  <div class="contenido">
+  <div class="tituloCampoFormulario" style="background-color: rgb(64, 64, 64) ! important;">Detalle del pedido</div>
+  <div id="descripcionDelPedido" style="background-color: rgb(98, 98, 98) ! important; float: left; width: 100%;" >
+    <div style="background-color: #494949; width: 50%; float: left; text-align: center; padding: 10%;">Descripción</div>
+    <div style="background-color: #515151; width: 50%; float: left; text-align: center; padding: 10%;">Total</div>
+    <div style="background-color: #5a5a5a; width: 50%; float: left; text-align: center; padding: 10%;">{{descripcion}}</div>
+    <div style="background-color: #626262; width: 50%; float: left; text-align: center; padding: 10%;">${{precio}}</div>
+  </div>
+  <div id="descripcionAdicional">
+    *Después de la compra te indicaremos los datos de la cuenta bancaria
+  </div>
+  <button id="finalizarCompra" ng-click="enviarDatos()" style="font-family: MetaBookCE ! important; width: 100%; border: medium none ! important; color: rgb(253, 198, 48); background-color: #2f2f2f; padding: 10%;">
+    <i style="color:#fd314e; font-size: 22px;" class="icon ion-checkmark-circled"> Finalizar Compra</i>
+  </button>
+  </div>
+  <div style="width:100%;" id="padreAbajo">
+   <div style="background-color:#5a5a5a; width:50%;" id="hijo"></div>
+   <div style="background-color:#515151; width:50%;" id="hijo"></div>
+  </div>
+ </ion-content>
+</ion-view>

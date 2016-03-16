@@ -19,11 +19,14 @@
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
     <script src="lib/ng-cordova-oauth/dist/ng-cordova-oauth.min.js"></script>
-   
+   <!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.1.4/angularfire.min.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
-   
+
      <!-- Factory -->
 
  <!--Controladores-->
@@ -32,19 +35,44 @@
    <script src="js/Controladores/promoPointsPorDiasControlador.js"></script>
    <script src="js/Controladores/menuPrincipalControlador.js"></script>
 <script src="js/Controladores/menuLateralControlador.js"></script>
-   
+
    <!--Promo Points Controladores-->
    <script src="js/Controladores/promoPoints/promoPointsMenuControlador.js"></script>
    <script src="js/Controladores/promoPoints/promoPointsLikeControlador.js"></script>
    <script src="js/Controladores/promoPoints/promoPointsFollowControlador.js"></script>
-   
+
+   <!--Points Plus Controladores-->
+   <script src="js/Controladores/pointsPlus/pointsPlusMenuControlador.js"></script>
+   <script src="js/Controladores/pointsPlus/duplicaTusPuntosControlador.js"></script>
+   <script src="js/Controladores/pointsPlus/suscribeteControlador.js"></script>
+   <script src="js/Controladores/pointsPlus/promocionesControlador.js"></script>
+   <script src="js/Controladores/pointsPlus/tarifasControlador.js"></script>
+
+   <!--Promocionar Fotos Controladores-->
+   <script src="js/Controladores/promocionarFotos/promocionarFotosControlador.js"></script>
+   <script src="js/Controladores/promocionarFotos/pFNumeroDeLikesControlador.js"></script>
+
+   <!--Promocionar Follows Controladores-->
+   <script src="js/Controladores/promocionarFollows/promocionarFollowsControlador.js"></script>
+
+   <!--Points Plus Corporate Controladores-->
+   <script src="js/Controladores/pointsPlusCorporate/pointsPlusCorporateMenuControlador.js"></script>
+   <script src="js/Controladores/pointsPlusCorporate/pointsPlusCorporatePublicidadControlador.js"></script>
+   <script src="js/Controladores/pointsPlusCorporate/pointsPlusCorporateReportesControlador.js"></script>
+
+   <!--Tipo de Pago Controladores-->
+   <script src="js/Controladores/seleccionarTipoDePagoControlador.js"></script>
+   <script src="js/Controladores/tarjetaDeCreditoControlador.js"></script>
+   <script src="js/Controladores/detallesFacturacionControlador.js"></script>
+   <script src="js/Controladores/depositoTransferencia.js"></script>
+
    <!-- Rutas js -->
  <script src="js/rutas.js"></script>
-   
-   
+
+
   </head>
 <body ng-app="starter">
- 
+
 <ion-side-menus enable-menu-with-back-views="true">
 
  <ion-side-menu-content>
@@ -67,9 +95,9 @@
 
  <!-- Right menu -->
  <ion-side-menu side="right" overflow-scroll="true" ng-controller="menuLateralControlador">
-      
+
    <ion-scroll zooming="true" direction="y" style="height:100%">
-                                          
+
   <div id="volverMenu">
    <a menu-close><i class="icon ion-chevron-right"></i> <p>Volver</p></a>
   </div>
@@ -82,42 +110,44 @@
    <div id="contenedorImagenDePerfil">
     <img id="imagenDePerfil" src="img/imagenDePerfil.png"/>
    </div>
-   
+
    <a menu-close ng-click="promoPointsAbrir()">
      <img src="img/monedas.png" /> Promo Points
     </a>
-   
-   <a>
+
+   <a menu-close ng-click="promocionarFotosAbrir()">
      <i style="color:#fd314e" class="icon ion-ios-heart"></i> Promocionar Foto
     </a>
 
-    <a>
+    <a menu-close ng-click="promocionarFollowsAbrir()" >
      <i style="color:#70cb94" class="icon ion-person"></i> Promocionar Follows
     </a>
-    <a>
+    <a menu-close ng-click="pointsPlusAbrir()">
      <i style="color:#4289fd" class="icon ion-plus-circled"></i> Points Plus
     </a>
-  
-   <a>
+
+   <a menu-close ng-click="pointsPlusCorporateAbrir()">
      <i style="color:#262626" class="icon ion-wand"></i> Points Plus Corporate
     </a>
-   
+
     <a>
      <i style="color:#dad2c0" class="icon ion-information-circled"></i> Promo Tips
     </a>
-    
+
 
   </div>
-  
+
   <div id="cerrarSesionMenu">
    <a ng-click="cerrarSesion()" menu-close><i class="icon ion-log-out"></i> <p>Cerrar Sesión</p></a>
-  </div>             
+  </div>
   </ion-scroll>
- 
+
     </ion-side-menu>
- 
+
 <div id="modalMio"></div>
 </ion-side-menus>
 
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+ <script type="text/javascript" src="https://www.2checkout.com/checkout/api/2co.min.js"></script>
 </body>
 </html>
