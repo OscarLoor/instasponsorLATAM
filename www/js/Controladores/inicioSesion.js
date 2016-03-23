@@ -1,30 +1,43 @@
 aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$http', '$ionicPlatform', '$ionicPopup', '$timeout', '$ionicHistory', '$state', '$firebaseArray', '$cordovaSQLite','parametrosUsuarioFactory', function($scope, $cordovaOauth, $http, $ionicPlatform, $ionicPopup, $timeout, $ionicHistory, $state, $firebaseArray, $cordovaSQLite, parametrosUsuarioFactory) {
   $ionicPlatform.ready(function() {
 
-    //Verifico la sesion
-    var db = $cordovaSQLite.openDB({
-      name: "com.datosBMN"
-    }); //db
-    //Obtengo el id del usuario y valido la sesion
-    $cordovaSQLite.execute(db, "SELECT * FROM usuario").then(function(res) {
-      console.log(res.rows.length)
-      if (res.rows.length !=0) {
-        //Si exite registro en la base de datos
-        parametrosUsuarioFactory.actualizarNombre(res.rows.item(0).nombre);
-        parametrosUsuarioFactory.actualizarIdUsuario(res.rows.item(0).idInstagram);
-        parametrosUsuarioFactory.actualizarToken(res.rows.item(0).access_token);
-        parametrosUsuarioFactory.actualizarImagenDePerfil(res.rows.item(0).imagenDePerfil);
+/*Elimnar esto cuando la app este funcionando*/
+    parametrosUsuarioFactory.actualizarNombre('Oscar Loor');
+    parametrosUsuarioFactory.actualizarIdUsuario('2981244912');
+    parametrosUsuarioFactory.actualizarToken('2981244912.4414c79.632d91df27c64f1797d2362c0279a653');
+    parametrosUsuarioFactory.actualizarImagenDePerfil('https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-19/12725106_1523062291330441_1327147976_a.jpg');
 
-      $ionicHistory.nextViewOptions({
-          disableBack: true
-        });
-        //Los promopoints se actualizan directo con firebase
-        $state.go('seleccionarPais'); //Redirige hacia una ruta
-      } else {
-      }
-    }, function(err) {
-      //No existe la tabla en caso de ser la primera vez
-    }); //execute
+    $ionicHistory.nextViewOptions({
+        disableBack: true
+      });
+      //Los promopoints se actualizan directo con firebase
+      $state.go('seleccionarPais'); //Redirige hacia una ruta
+/*Elimnar esto cuando la app este funcionando*/
+
+    // //Verifico la sesion
+    // var db = $cordovaSQLite.openDB({
+    //   name: "com.datosBMN"
+    // }); //db
+    // //Obtengo el id del usuario y valido la sesion
+    // $cordovaSQLite.execute(db, "SELECT * FROM usuario").then(function(res) {
+    //   console.log(res.rows.length)
+    //   if (res.rows.length !=0) {
+    //     //Si exite registro en la base de datos
+    //     parametrosUsuarioFactory.actualizarNombre(res.rows.item(0).nombre);
+    //     parametrosUsuarioFactory.actualizarIdUsuario(res.rows.item(0).idInstagram);
+    //     parametrosUsuarioFactory.actualizarToken(res.rows.item(0).access_token);
+    //     parametrosUsuarioFactory.actualizarImagenDePerfil(res.rows.item(0).imagenDePerfil);
+    //
+    //   $ionicHistory.nextViewOptions({
+    //       disableBack: true
+    //     });
+    //     //Los promopoints se actualizan directo con firebase
+    //     $state.go('seleccionarPais'); //Redirige hacia una ruta
+    //   } else {
+    //   }
+    // }, function(err) {
+    //   //No existe la tabla en caso de ser la primera vez
+    // }); //execute
 
   });//$ionicPlatform.ready
 
@@ -77,59 +90,59 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
                 });
               }
 
-              //Creo la sesion con el usuario
-              var db = $cordovaSQLite.openDB({
-                name: "com.datosBMN"
-              });
-
-              $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS usuario (idInstagram varchar primary key NOT NULL, pais varchar, nombre varchar NOT NULL, access_token varchar NOT NULL, imagenDePerfil varchar NOT NULL)").then(function(res) {
-
-                //Borro todos los registros de la tabla para asegurar siempre un registro
-                $cordovaSQLite.execute(db, "DELETE FROM usuario").then(function(res) {
-
-                  /*Inserto el usuario*/
-                  $cordovaSQLite.execute(db, "INSERT INTO usuario (idInstagram, nombre, access_token, imagenDePerfil) VALUES ('"+idUsuario+"','"+nombre+"', '"+token+"', '"+encodeURI(imagenDePerfil)+"')").then(function(res) {
-                    parametrosUsuarioFactory.actualizarNombre(nombre);
-                    parametrosUsuarioFactory.actualizarImagenDePerfil(imagenDePerfil);
-                    parametrosUsuarioFactory.actualizarIdUsuario(idUsuario);
-                    parametrosUsuarioFactory.actualizarToken(token);
-
-                    $ionicHistory.nextViewOptions({
-                      disableBack: true
-                    });
-                    $state.go('seleccionarPais'); //Redirige hacia una ruta
-
-
-
-                  }, function(err) {
-                    myPopup.close();
-                    $ionicPopup.confirm({
-                        title: 'ERROR INSERT',
-                        content: JSON.stringify(err)
-                      })
-                      .then(function(result) {
-                      });
-                  });//execute
-
-                }, function(err) {
-                  myPopup.close();
-                  $ionicPopup.confirm({
-                      title: 'ERROR DELETE',
-                      content: JSON.stringify(err)
-                    })
-                    .then(function(result) {
-                    });
-                });//execute
-
-              }, function(err) {
-                myPopup.close();
-                $ionicPopup.confirm({
-                    title: 'ERROR CREATE',
-                    content: JSON.stringify(err)
-                  })
-                  .then(function(result) {
-                  });
-              });//execute
+              // //Creo la sesion con el usuario
+              // var db = $cordovaSQLite.openDB({
+              //   name: "com.datosBMN"
+              // });
+              //
+              // $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS usuario (idInstagram varchar primary key NOT NULL, pais varchar, nombre varchar NOT NULL, access_token varchar NOT NULL, imagenDePerfil varchar NOT NULL)").then(function(res) {
+              //
+              //   //Borro todos los registros de la tabla para asegurar siempre un registro
+              //   $cordovaSQLite.execute(db, "DELETE FROM usuario").then(function(res) {
+              //
+              //     /*Inserto el usuario*/
+              //     $cordovaSQLite.execute(db, "INSERT INTO usuario (idInstagram, nombre, access_token, imagenDePerfil) VALUES ('"+idUsuario+"','"+nombre+"', '"+token+"', '"+encodeURI(imagenDePerfil)+"')").then(function(res) {
+              //       parametrosUsuarioFactory.actualizarNombre(nombre);
+              //       parametrosUsuarioFactory.actualizarImagenDePerfil(imagenDePerfil);
+              //       parametrosUsuarioFactory.actualizarIdUsuario(idUsuario);
+              //       parametrosUsuarioFactory.actualizarToken(token);
+              //
+              //       $ionicHistory.nextViewOptions({
+              //         disableBack: true
+              //       });
+              //       $state.go('seleccionarPais'); //Redirige hacia una ruta
+              //
+              //
+              //
+              //     }, function(err) {
+              //       myPopup.close();
+              //       $ionicPopup.confirm({
+              //           title: 'ERROR INSERT',
+              //           content: JSON.stringify(err)
+              //         })
+              //         .then(function(result) {
+              //         });
+              //     });//execute
+              //
+              //   }, function(err) {
+              //     myPopup.close();
+              //     $ionicPopup.confirm({
+              //         title: 'ERROR DELETE',
+              //         content: JSON.stringify(err)
+              //       })
+              //       .then(function(result) {
+              //       });
+              //   });//execute
+              //
+              // }, function(err) {
+              //   myPopup.close();
+              //   $ionicPopup.confirm({
+              //       title: 'ERROR CREATE',
+              //       content: JSON.stringify(err)
+              //     })
+              //     .then(function(result) {
+              //     });
+              // });//execute
 
               //Redirecciono a seleccionar pais evitando que pueda volver
               myPopup.close();

@@ -14,33 +14,40 @@ aplicacion.controller('menuLateralControlador', ['$scope','$state','parametrosUs
    parametrosUsuarioFactory.actualizarIdUsuario('');
    parametrosUsuarioFactory.actualizarImagenDePerfil('');
 
-   //Borro los datos de la base de datos
-   //Creo la sesion con el usuario
-   var db = $cordovaSQLite.openDB({
-     name: "com.datosBMN"
+/*Eliminar esto cuando ya este en el dispositivo*/
+   $ionicHistory.nextViewOptions({
+     disableBack: true
    });
-   //Borro todos los registros de la tabla para asegurar siempre un registro
-   $cordovaSQLite.execute(db, "DELETE FROM usuario").then(function(res) {
+  $state.go('iniciarSesion'); //Redirige hacia una ruta
+/*Eliminar esto cuando ya este en el dispositivo*/
 
-     $ionicPopup.confirm({
-         title: 'Cerrar Sesión',
-         content: 'La sesión se ha cerrado correctamente'
-       })
-       .then(function(result) {
-         $ionicHistory.nextViewOptions({
-           disableBack: true
-         });
-        $state.go('iniciarSesion'); //Redirige hacia una ruta
-       });
-   }, function(err) {
-
-     $ionicPopup.confirm({
-         title: 'Error al cerrar la sesión',
-         content: JSON.stringify(err)
-       })
-       .then(function(result) {
-       });
-   });//execute
+  //  //Borro los datos de la base de datos
+  //  //Creo la sesion con el usuario
+  //  var db = $cordovaSQLite.openDB({
+  //    name: "com.datosBMN"
+  //  });
+  //  //Borro todos los registros de la tabla para asegurar siempre un registro
+  //  $cordovaSQLite.execute(db, "DELETE FROM usuario").then(function(res) {
+   //
+  //    $ionicPopup.confirm({
+  //        title: 'Cerrar Sesión',
+  //        content: 'La sesión se ha cerrado correctamente'
+  //      })
+  //      .then(function(result) {
+  //        $ionicHistory.nextViewOptions({
+  //          disableBack: true
+  //        });
+  //       $state.go('iniciarSesion'); //Redirige hacia una ruta
+  //      });
+  //  }, function(err) {
+   //
+  //    $ionicPopup.confirm({
+  //        title: 'Error al cerrar la sesión',
+  //        content: JSON.stringify(err)
+  //      })
+  //      .then(function(result) {
+  //      });
+  //  });//execute
 
  };
 $scope.promoPointsAbrir = function(){
