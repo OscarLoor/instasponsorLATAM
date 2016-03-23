@@ -30,26 +30,26 @@ aplicacion.run(function($ionicPlatform, $rootScope, $location, $state, parametro
           /*Si no pongo ningun state transitionTo se ira a la ruta solicitada
           unicamente utilizarlo cuando no quiero que vaya a la ruta deseada sin antes pasar por controles
           */
-          console.log(toState.url)
+          //console.log(toState.url)
           if (toState.url != '/iniciarSesion' && toState.url != '/seleccionarPais') {
             /*
             Verfico si hay pais en la factory, si no existe paso a seleccionarPais, caso contrario continua a la siguiente validacion
             Verifico si hay idInstragram en la factory, si no existe paso a iniciar sesion, caso contrario le envio a la ruta seleccionada
             */
-            console.log("Pais:"+parametrosUsuarioFactory.obtenerPais().length);
+            //console.log("Pais:"+parametrosUsuarioFactory.obtenerPais().length);
             if (parametrosUsuarioFactory.obtenerPais().length!=0) {
-              console.log("ID1:"+parametrosUsuarioFactory.obtenerIdUsuario().length);
+              //console.log("ID1:"+parametrosUsuarioFactory.obtenerIdUsuario().length);
               if (parametrosUsuarioFactory.obtenerIdUsuario().length!=0) {
-                console.log("Ir a * dentro de *")
+                //console.log("Ir a * dentro de *")
                 //$state.transitionTo(toState.url.substr(1), null, {reload:true});
                 //$state.go(toState.url.substr(1),{reload: true});
               } else {
-                console.log("Ir a iniciar sesion dentro de *")
+                //console.log("Ir a iniciar sesion dentro de *")
                 //$state.go('iniciarSesion',{reload: true});
                 $state.transitionTo('iniciarSesion', null, {reload:true});
               }
             } else {
-              console.log("Ir a seleccionar pais dentro de *")
+              //console.log("Ir a seleccionar pais dentro de *")
               $state.transitionTo('seleccionarPais', null, {reload:true});
               //$state.go('seleccionarPais',{reload: true});
 
@@ -57,14 +57,14 @@ aplicacion.run(function($ionicPlatform, $rootScope, $location, $state, parametro
           }
 
           if (toState.url == '/seleccionarPais') {
-            console.log("ID2:"+parametrosUsuarioFactory.obtenerIdUsuario().length);
+            //console.log("ID2:"+parametrosUsuarioFactory.obtenerIdUsuario().length);
             //Si existe un usuario en factory le mando a seleccionarPais caso contrario lo envio a iniciar sesion
             if (parametrosUsuarioFactory.obtenerIdUsuario().length!=0) {
-              console.log("Ir a seleccionar pais")
+              //console.log("Ir a seleccionar pais")
               //$state.go('seleccionarPais',{reload: true});
               //$state.transitionTo('seleccionarPais', null, {reload:true});
             } else {
-              console.log("Ir a iniciar Sesion dentro de seleccionar pais")
+              //console.log("Ir a iniciar Sesion dentro de seleccionar pais")
               //$state.go('iniciarSesion',{reload: true});
               $state.transitionTo('iniciarSesion', null, {reload:true});
 
@@ -73,7 +73,7 @@ aplicacion.run(function($ionicPlatform, $rootScope, $location, $state, parametro
 
 
           if (toState.url == '/iniciarSesion') {
-            console.log("Ir a iniciar Sesion")
+            //console.log("Ir a iniciar Sesion")
             //$state.transitionTo('iniciarSesion', null, { reload: true});
             //$state.go('iniciarSesion',{reload: true});
           }

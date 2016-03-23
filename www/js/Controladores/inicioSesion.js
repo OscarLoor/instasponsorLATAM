@@ -7,6 +7,40 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
     parametrosUsuarioFactory.actualizarToken('2981244912.4414c79.632d91df27c64f1797d2362c0279a653');
     parametrosUsuarioFactory.actualizarImagenDePerfil('https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-19/12725106_1523062291330441_1327147976_a.jpg');
 
+    /*Datos base de datos*/
+    var ref = new Firebase("https://servidorbmn.firebaseio.com/usuarios/" + parametrosUsuarioFactory.obtenerIdUsuario());
+
+    var lecturaBaseDeDatos = $firebaseArray(ref);
+    //Muestro una pantalla de carga
+    var myPopup = $ionicPopup.show({
+      title: 'Cargando',
+      template: '<ion-spinner icon="spiral"></ion-spinner>'
+    });
+
+    lecturaBaseDeDatos.$loaded()
+      .then(function(x) {
+        $scope.lecturaBaseDeDatos = lecturaBaseDeDatos;
+
+        //Si no existe el registro del usuario lo creo en la base de datos de firebase con 0 promoPoints
+        if ($scope.lecturaBaseDeDatos.length == 0) {
+          ref.update({
+            "promoPoints": 0
+          });
+        }
+        //Redirecciono a seleccionar pais evitando que pueda volver
+        myPopup.close();
+
+      }).catch(function(error) {
+        myPopup.close();
+        $ionicPopup.confirm({
+            title: 'ERROR',
+            content: JSON.stringify(error)
+          })
+          .then(function(result) {
+          });
+
+      });;//catch
+
     $ionicHistory.nextViewOptions({
         disableBack: true
       });
@@ -41,7 +75,7 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
 
   });//$ionicPlatform.ready
 
-  console.log("Dentro de iniciarsesion.js")
+  //console.log("Dentro de iniciarsesion.js")
   $scope.login = function() {
 
     //Muestro una pantalla de carga
