@@ -27,7 +27,9 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
 
-     <!-- Factory -->
+    <!-- Factory -->
+<script src="js/Factory/datosUsuario.js"></script>
+
 
  <!--Controladores-->
  <script src="js/Controladores/inicioSesion.js"></script>
@@ -103,12 +105,12 @@
   </div>
 
   <div id="opcionesMenu" style="background-color: #4b4b4b;">
-   <p id="nombreMenu" style="padding: 10px 10px 4px;">Christina Knock</p>
+   <p id="nombreMenu" style="padding: 10px 10px 4px;">{{nombre}}</p>
    <div id="promopointsMenu" style="padding: 10px 10px 4px;">
     <img style="float: left;" src="img/monedas.png" /> <p>6890</p>
    </div>
    <div id="contenedorImagenDePerfil">
-    <img id="imagenDePerfil" src="img/imagenDePerfil.png"/>
+    <img id="imagenDePerfil" src="{{imagenDePerfil}}"/>
    </div>
 
    <a menu-close ng-click="promoPointsAbrir()">
