@@ -1,10 +1,25 @@
-aplicacion.controller('menuLateralControlador', ['$scope','$state','parametrosUsuarioFactory','$cordovaSQLite','$ionicPopup','$ionicHistory',function ($scope,$state,parametrosUsuarioFactory,$cordovaSQLite,$ionicPopup,$ionicHistory) {
+aplicacion.controller('menuLateralControlador', ['$scope','$state','parametrosUsuarioFactory','$cordovaSQLite','$ionicPopup','$ionicHistory','$firebaseObject',function ($scope,$state,parametrosUsuarioFactory,$cordovaSQLite,$ionicPopup,$ionicHistory, $firebaseObject) {
 
   //Escucho si se realiza algun cambio en los datos de la factory
   $scope.$on("datosActualizados", function(){
     $scope.nombre = parametrosUsuarioFactory.obtenerNombre();
     $scope.imagenDePerfil = parametrosUsuarioFactory.obtenerImagenDePerfil();
+    if(parametrosUsuarioFactory.obtenerIdUsuario().length!=0){
+      var referenciaUsuario = new Firebase("https://servidorbmn.firebaseio.com/usuarios/" + parametrosUsuarioFactory.obtenerIdUsuario());
+      var lecturaReferenciaUsuario = $firebaseObject(referenciaUsuario);
+      $scope.datosPromoPoints = {};
+      lecturaReferenciaUsuario.$loaded()
+        .then(function(x) {
+
+          lecturaReferenciaUsuario.$bindTo($scope, "datosPromoPoints").then(function() {
+            //console.log($scope.datosPromoPoints.promoPoints);
+          });
+
+        })
+    }
   });
+
+
 
  $scope.cerrarSesion = function (){
    //Borro los datos de factory

@@ -417,6 +417,25 @@ body {
     -moz-opacity: .80;
     opacity: .20;
 }
+#cargarMasElementos {
+    width: 100%;
+    border: none;
+    padding: 20px;
+    font-family: MetaBookRegular;
+    font-size: 18px;
+    background-color: rgb(253, 198, 48);
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    float: left;
+    margin-top: 15px;
+}
+
+#cargarMasElementos:disabled {
+    display: none;
+}
+#cargarMasElementos:active {
+    background-color: #2f2f2f;
+}
 /*Tipos de pago*/
 .labelPais {
     padding: 20px;

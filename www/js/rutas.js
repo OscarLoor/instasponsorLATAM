@@ -83,7 +83,7 @@ aplicacion.config(function ($stateProvider, $urlRouterProvider) {
  });
 
  $stateProvider.state('pFNumeroDeLikes', {
-  url: '/pFNumeroDeLikes',
+  url: '/pFNumeroDeLikes/:idUsuario/:idImagen/:url',
   templateUrl: 'pantallas/promocionarFotos/seleccionarNumeroDeLikes.html',
   controller: 'pFNumeroDeLikesControlador'
  });

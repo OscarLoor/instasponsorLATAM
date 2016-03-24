@@ -19,11 +19,11 @@
     <!--Fila Uno-->
     <div class="filaFotos">
 
-      <div ng-repeat="imagen in imagenesRecibidas" ng-click="seleccionarNumeroDeLikes(imagen.id)" class="imagenesFotos" style="background: url({{imagen.url}}); margin-left: 4%; margin-right: 4%; margin-top: 5%; margin-bottom: 2.5%;"></div>
+      <div ng-repeat="imagen in imagenesRecibidas" ng-click="seleccionarNumeroDeLikes(imagen.id, imagen.url)" class="imagenesFotos" style="background: url({{imagen.url}}); margin-left: 4%; margin-right: 4%; margin-top: 5%; margin-bottom: 2.5%;"></div>
 
     </div><!--Fila Uno-->
 
-
+    <button id="cargarMasElementos" href="#" ng-disabled="claseDesactivarSiguientePagina()" ng-click="cargarMas()">Cargar Más</button>
 
    </div>
 

@@ -1,11 +1,13 @@
-aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$http', '$ionicPlatform', '$ionicPopup', '$timeout', '$ionicHistory', '$state', '$firebaseArray', '$cordovaSQLite','parametrosUsuarioFactory', function($scope, $cordovaOauth, $http, $ionicPlatform, $ionicPopup, $timeout, $ionicHistory, $state, $firebaseArray, $cordovaSQLite, parametrosUsuarioFactory) {
+aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$http', '$ionicPlatform', '$ionicPopup', '$timeout', '$ionicHistory', '$state', '$firebaseArray', '$cordovaSQLite', 'parametrosUsuarioFactory', '$firebaseObject', function($scope, $cordovaOauth, $http, $ionicPlatform, $ionicPopup, $timeout, $ionicHistory, $state, $firebaseArray, $cordovaSQLite, parametrosUsuarioFactory, $firebaseObject) {
   $ionicPlatform.ready(function() {
 
-/*Elimnar esto cuando la app este funcionando*/
+    /*Elimnar esto cuando la app este funcionando*/
     parametrosUsuarioFactory.actualizarNombre('Oscar Loor');
     parametrosUsuarioFactory.actualizarIdUsuario('2981244912');
     parametrosUsuarioFactory.actualizarToken('2981244912.4414c79.632d91df27c64f1797d2362c0279a653');
     parametrosUsuarioFactory.actualizarImagenDePerfil('https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-19/12725106_1523062291330441_1327147976_a.jpg');
+
+
 
     /*Datos base de datos*/
     var ref = new Firebase("https://servidorbmn.firebaseio.com/usuarios/" + parametrosUsuarioFactory.obtenerIdUsuario());
@@ -36,17 +38,16 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
             title: 'ERROR',
             content: JSON.stringify(error)
           })
-          .then(function(result) {
-          });
+          .then(function(result) {});
 
-      });;//catch
+      });; //catch
 
     $ionicHistory.nextViewOptions({
-        disableBack: true
-      });
-      //Los promopoints se actualizan directo con firebase
-      $state.go('seleccionarPais'); //Redirige hacia una ruta
-/*Elimnar esto cuando la app este funcionando*/
+      disableBack: true
+    });
+    //Los promopoints se actualizan directo con firebase
+    $state.go('seleccionarPais'); //Redirige hacia una ruta
+    /*Elimnar esto cuando la app este funcionando*/
 
     // //Verifico la sesion
     // var db = $cordovaSQLite.openDB({
@@ -61,7 +62,7 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
     //     parametrosUsuarioFactory.actualizarIdUsuario(res.rows.item(0).idInstagram);
     //     parametrosUsuarioFactory.actualizarToken(res.rows.item(0).access_token);
     //     parametrosUsuarioFactory.actualizarImagenDePerfil(res.rows.item(0).imagenDePerfil);
-    //
+
     //   $ionicHistory.nextViewOptions({
     //       disableBack: true
     //     });
@@ -73,7 +74,7 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
     //   //No existe la tabla en caso de ser la primera vez
     // }); //execute
 
-  });//$ionicPlatform.ready
+  }); //$ionicPlatform.ready
 
   //console.log("Dentro de iniciarsesion.js")
   $scope.login = function() {
@@ -84,8 +85,7 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
       template: '<ion-spinner icon="spiral"></ion-spinner>'
     });
 
-    myPopup.then(function(res) {
-    });
+    myPopup.then(function(res) {});
 
 
 
@@ -140,7 +140,7 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
               //       parametrosUsuarioFactory.actualizarImagenDePerfil(imagenDePerfil);
               //       parametrosUsuarioFactory.actualizarIdUsuario(idUsuario);
               //       parametrosUsuarioFactory.actualizarToken(token);
-              //
+
               //       $ionicHistory.nextViewOptions({
               //         disableBack: true
               //       });
@@ -187,10 +187,9 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
                   title: 'ERROR',
                   content: JSON.stringify(error)
                 })
-                .then(function(result) {
-                });
+                .then(function(result) {});
 
-            });;//catch
+            });; //catch
 
         }); //$http
 
@@ -216,8 +215,7 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
             title: 'ERROR',
             content: JSON.stringify(error)
           })
-          .then(function(result) {
-          });
+          .then(function(result) {});
         //
         // myPopup.close();
         // $ionicHistory.nextViewOptions({
