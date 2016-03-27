@@ -49,7 +49,7 @@ aplicacion.controller('pFNumeroDeLikesControlador', ['$scope', '$state', '$ionic
 
             var lecturaBaseDeDatosDos = $firebaseArray(refDos);
 
-            var refTres = new Firebase("https://servidorbmn.firebaseio.com/reportes/promocionarFoto/" + $stateParams.idUsuario);
+            var refTres = new Firebase("https://servidorbmn.firebaseio.com/reportes/promocionarFoto/" + $stateParams.idUsuario+"/"+idImagen);
 
             var lecturaBaseDeDatosTres = $firebaseArray(refTres);
 
@@ -106,30 +106,38 @@ aplicacion.controller('pFNumeroDeLikesControlador', ['$scope', '$state', '$ionic
                               } else {
 
 
-                                lecturaBaseDeDatosTres.$add({
+                                refTres.update({
                                   idImagen: idImagen,
                                   url: $stateParams.url
-                                }).then(function(ref) {
-                                  //Si todo esta correcto
+                                }, function(error) {
+                                  myPopupTres.close();
+                                  if (error) {
+                                    $ionicPopup.alert({
+                                      title: 'Error',
+                                      template: 'Fallo el ingreso en la base de datos'
+                                    });
+                                  } else {
+                                    //Si todo esta correcto
+
+                                    var promoPointsFinales = parseInt(lecturaReferenciaUsuario[0].$value) - parseInt(promoPoints);
+                                    referenciaUsuario.update({promoPoints: promoPointsFinales});
 
 
-                                  var promoPointsFinales = lecturaReferenciaUsuario[0].$value-promoPoints;
-                                  referenciaUsuario.update({promoPoints: promoPointsFinales});
-
-
-                                  var alertPopup = $ionicPopup.alert({
-                                    title: '¡Gracias por tu pedido!',
-                                    template: '¡Será promocionado durante los siguientes días!'
-                                  });
-
-                                  alertPopup.then(function(res) {
-                                    $ionicHistory.nextViewOptions({
-                                      disableBack: true
+                                    var alertPopup = $ionicPopup.alert({
+                                      title: '¡Gracias por tu pedido!',
+                                      template: '¡Será promocionado durante los siguientes días!'
                                     });
 
-                                    $state.go('menuPrincipal'); //Redirige hacia una ruta
-                                  })
-                                });
+                                    alertPopup.then(function(res) {
+                                      $ionicHistory.nextViewOptions({
+                                        disableBack: true
+                                      });
+
+                                      $state.go('menuPrincipal'); //Redirige hacia una ruta
+                                    })
+                                  }})
+
+
 
 
                               }

@@ -5,12 +5,13 @@
 
    <div style="width:100%; color: #1e1e1e;" id="padre">
     <div style="background-color: #2f2f2f; width:30%;" id="hijo">
-     <img id="imagenDePerfil" src="img/imagenDePerfil.png" />
+      <div id="imagenDePerfil" style="background: url({{imagenDePerfil}})">
+      </div>
     </div>
     <div style="background-color: #2f2f2f; width:70%; font-family: MetaBookRegular; padding: 0px 5px; color: #fff;" id="hijo">
-     <p style="font-size: 20px;">Christina Knock</p>
+     <p style="font-size: 20px;">{{nombre}}</p>
      <div style="margin-top: 8px;"><img style="width: 21px; height: auto; float: left; margin-right: 5px;" src="img/monedasBlancas.png" />
-      <p>6890</p>
+      <p>{{datosPromoPoints.promoPoints}}</p>
      </div>
     </div>
 
@@ -19,15 +20,15 @@
    <div class="fotos">
     <div class="filaFotos">
 
-      <div class="imagenesFotos" style="background: url(img/fotosInstagram/2.jpg); margin-left: 4%; margin-right: 4%; margin-top: 5%; margin-bottom: 2.5%;"></div>
-     <div class="imagenesFotos" style="background: url(img/fotosInstagram/1.jpg); margin-right: 4%; margin-top: 5%; margin-bottom: 2.5%;"></div>
+      <div class="imagenesFotos" style="background: url({{imagenUno.url}}); margin-left: 4%; margin-right: 4%; margin-top: 5%; margin-bottom: 2.5%;"></div>
+     <div class="imagenesFotos" style="background: url({{imagenDos.url}}); margin-right: 4%; margin-top: 5%; margin-bottom: 2.5%;"></div>
 
     </div>
 
     <div class="filaFotos">
 
-            <div class="imagenesFotos" style="background: url(img/fotosInstagram/3.jpg); margin-left: 4%; margin-right: 4%; margin-bottom: 5%; margin-top: 2.5%;"></div>
-     <div class="imagenesFotos" style="background: url(img/fotosInstagram/4.jpg); margin-bottom: 4%; margin-top: 2.5%;"></div>
+            <div class="imagenesFotos" style="background: url({{imagenTres.url}}); margin-left: 4%; margin-right: 4%; margin-bottom: 5%; margin-top: 2.5%;"></div>
+     <div class="imagenesFotos" style="background: url({{imagenCuatro.url}}); margin-bottom: 4%; margin-top: 2.5%;"></div>
 
 
     </div>
@@ -39,7 +40,7 @@
    </div>
 
    <div ng-repeat="registroSimple in lecturaBaseDeDatos" class="botones" style="width: 100%; height: 15%;" id="padre">
-    <a style="background-color: #373737; width: 50%;" id="hijo">
+    <a ng-click="botonLike()" style="background-color: #373737; width: 50%;" id="hijo">
      <div>
       <span style="font-size: 24px;">LIKE (+{{registroSimple.promoPoints}})</span>
       <i style="font-size: 25px; margin-left: 5px; color:rgb(253, 49, 78)" class="icon ion-ios-heart"></i>
@@ -47,7 +48,7 @@
 
     </a>
 
-    <a style="background-color: #404040; width: 50%;" id="hijo">
+    <a ng-click="botonNext()" style="background-color: #404040; width: 50%;" id="hijo">
      <div>
       <span style="font-size: 24px;">NEXT</span>
       <i style="font-size: 25px; margin-left: 5px;" class="icon ion-chevron-right"></i>

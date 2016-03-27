@@ -210,9 +210,16 @@ body {
 }
 
 #imagenDePerfil {
-    width: 100px;
-    margin: 0px;
+    width: 107px;
+    margin: auto;
     padding: 0px;
+    height: 107px;
+    background-repeat: no-repeat !important;
+    background-position: 50% !important;
+    border-radius: 50%;
+    background-size: 100% auto !important;
+    float: none;
+    border: 7px solid #626262;
 }
 
 #contenedorImagenDePerfil {
@@ -349,9 +356,10 @@ body {
 
 /*PromoPoints Like*/
 .promoPointsLike #imagenDePerfil {
-    width: 90% !important;
-    height: auto !important;
-    max-width: 120px !important;
+    width: 90px;
+    height: 90px;
+    margin: 20px auto;
+    float: right;
 }
 
 .promoPointsLike p {
