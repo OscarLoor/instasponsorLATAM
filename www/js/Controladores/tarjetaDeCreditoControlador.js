@@ -70,6 +70,11 @@ var myPopup;
               idUsuario: parametrosUsuarioFactory.obtenerIdUsuario(),
               verificado: true
             }).then(function(ref) {
+              /*
+
+              FALTA EL CODIGO PARA ACTIVAR LOS DIFERENTES SERVICIOS
+
+              */
               myPopup.close();
               $ionicPopup.confirm({
                   title: 'Compra finalizada',
