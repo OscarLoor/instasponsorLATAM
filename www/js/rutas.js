@@ -123,7 +123,7 @@ aplicacion.config(function ($stateProvider, $urlRouterProvider) {
  });
 
   $stateProvider.state('tarjetaDeCredito', {
-  url: '/tarjetaDeCredito/:precio/:descripcion/:usuario',
+  url: '/tarjetaDeCredito/:precio/:descripcion/{usuario:json}',
   templateUrl: 'pantallas/tarjetaDeCredito.html',
   controller: 'tarjetaDeCreditoControlador'
  });
@@ -135,7 +135,7 @@ aplicacion.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 $stateProvider.state('depositoTransferencia', {
-url: '/depositoTransferencia/:precio/:descripcion',
+url: '/depositoTransferencia/:precio/:descripcion/{usuario:json}',
 templateUrl: 'pantallas/depositoTransferencia.html',
 controller: 'depositoTransferenciaControlador'
 });
