@@ -5,23 +5,23 @@
   <div class="Formulario">
 
    <label class="elementoFormulario">
-    <span >Número de la tarjeta</span>
+    <span >Número de la tarjeta *</span>
     <input ng-model="datosTarjeta.numeroDeTarjeta" type="text" size="20" value="" autocomplete="off" required />
    </label>
 
    <label class="elementoFormulario">
-    <span >Mes de expiración (MM)</span>
+    <span >Mes de expiración (MM) *</span>
     <input type="text" size="2" ng-model="datosTarjeta.mesDeExpiracion" required />
    </label>
 
    <label class="elementoFormulario">
-    <span >Año de expiración (YYYY)</span>
+    <span >Año de expiración (YYYY) *</span>
     <input type="text" size="4" ng-model="datosTarjeta.anoDeExpiracion" required />
    </label>
 
    <label class="elementoFormulario">
-    <span >CVC</span>
-    <input ng-model="datosTarjeta.CVC" size="4" type="text" value="" autocomplete="off" required />
+    <span >CVC *</span>
+    <input ng-model="datosTarjeta.CVC" size="3" type="text" value="" autocomplete="off" required />
    </label>
 
   </div>
@@ -35,7 +35,7 @@
   <div id="descripcionAdicional">
     *Los precios ya incluyen IVA
   </div>
-  <button id="finalizarCompra" ng-click="enviarDatos()" style="font-family: MetaBookCE ! important; width: 100%; border: medium none ! important; color: rgb(253, 198, 48); background-color: rgb(98, 98, 98); padding: 10%;">
+  <button id="finalizarCompra" ng-click="finalizarCompra()" style="font-family: MetaBookCE ! important; width: 100%; border: medium none ! important; color: rgb(253, 198, 48); background-color: rgb(98, 98, 98); padding: 10%;">
     <i style="color:#fdc630; font-size: 22px;" class="icon ion-checkmark-circled"> Finalizar Compra</i>
   </button>
   </div>

@@ -2,8 +2,14 @@ aplicacion.controller('depositoTransferenciaControlador', ['$scope', '$state', '
 
   $scope.precio = $stateParams.precio
   $scope.descripcion = $stateParams.descripcion
-  $scope.finalizarCompra = function() {
+  var myPopup;
 
+  $scope.finalizarCompra = function() {
+    myPopup = $ionicPopup.show({
+      title: 'Cargando',
+      template: '<ion-spinner icon="spiral"></ion-spinner>'
+    });
+    
       var referenciaCompra = new Firebase("https://servidorbmn.firebaseio.com/compras/depositoTransferencia");
       var lecturaReferenciaCompra = $firebaseArray(referenciaCompra);
       lecturaReferenciaCompra.$loaded()
@@ -23,6 +29,7 @@ aplicacion.controller('depositoTransferenciaControlador', ['$scope', '$state', '
             idUsuario: parametrosUsuarioFactory.obtenerIdUsuario(),
             verificado: false
           }).then(function(ref) {
+            myPopup.close();
             $ionicPopup.confirm({
                 title: 'Compra finalizada',
                 content: 'Envíanos el comprobante de la compra a nuestro email: info@bmnapp.com'
