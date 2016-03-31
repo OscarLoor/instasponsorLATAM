@@ -90,11 +90,12 @@ aplicacion.controller('detallesFacturacionControlador', ['$scope', '$state', '$s
 
 
                   myPopup.close();
-                  console.log("Guardado en la base de datos y enviado")
+                  //console.log("Guardado en la base de datos y enviado")
                   $state.go('seleccionarTipoDePago', {
                     precio: $stateParams.precio,
                     descripcion: $stateParams.descripcion,
-                    usuario: datosUsuario
+                    usuario: datosUsuario,
+                    compra: $stateParams.compra
                   });
                 }).catch(function(error) {
                   myPopup.close();
@@ -128,7 +129,7 @@ aplicacion.controller('detallesFacturacionControlador', ['$scope', '$state', '$s
                           })
                           .then(function(result) {});
                       } else {
-                        console.log("Enviado sin guardar y eliminado")
+                        //console.log("Enviado sin guardar y eliminado")
                         $state.go('seleccionarTipoDePago', {
                           precio: $stateParams.precio,
                           descripcion: $stateParams.descripcion,
@@ -137,7 +138,7 @@ aplicacion.controller('detallesFacturacionControlador', ['$scope', '$state', '$s
                       }
                     });
                   } else {
-                    console.log("Enviado sin guardar")
+                    //console.log("Enviado sin guardar")
                     $state.go('seleccionarTipoDePago', {
                       precio: $stateParams.precio,
                       descripcion: $stateParams.descripcion,

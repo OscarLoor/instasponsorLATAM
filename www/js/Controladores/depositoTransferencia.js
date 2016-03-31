@@ -9,11 +9,12 @@ aplicacion.controller('depositoTransferenciaControlador', ['$scope', '$state', '
       title: 'Cargando',
       template: '<ion-spinner icon="spiral"></ion-spinner>'
     });
-    
+
       var referenciaCompra = new Firebase("https://servidorbmn.firebaseio.com/compras/depositoTransferencia");
       var lecturaReferenciaCompra = $firebaseArray(referenciaCompra);
       lecturaReferenciaCompra.$loaded()
         .then(function(x) {
+          //console.log($stateParams.compra)
           lecturaReferenciaCompra.$add({
             apellido: $stateParams.usuario.apellido,
             ciudad: $stateParams.usuario.ciudad,
@@ -27,7 +28,14 @@ aplicacion.controller('depositoTransferenciaControlador', ['$scope', '$state', '
             descripcion: $stateParams.descripcion,
             timestamp: Firebase.ServerValue.TIMESTAMP,
             idUsuario: parametrosUsuarioFactory.obtenerIdUsuario(),
-            verificado: false
+            verificado: false,
+            tipoDeCompra: $stateParams.compra.tipoDeCompra,
+            promoPoints: $stateParams.compra.promoPoints,
+            tipo:$stateParams.compra.tipo,
+            tiempo:$stateParams.compra.tiempo,
+            duracionDeCompra:$stateParams.compra.duracionDeCompra,
+            idPublicidad:$stateParams.compra.idPublicidad,
+            urlPublicidad: $stateParams.compra.urlPublicidad
           }).then(function(ref) {
             myPopup.close();
             $ionicPopup.confirm({

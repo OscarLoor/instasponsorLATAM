@@ -10,13 +10,15 @@ $scope.tipoDePago = function(tipoDePago){
    $state.go('tarjetaDeCredito', {
      precio: $stateParams.precio,
      descripcion: $stateParams.descripcion,
-     usuario: $stateParams.usuario
+     usuario: $stateParams.usuario,
+     compra: $stateParams.compra
    });
  }else{
    $state.go('depositoTransferencia', {
      precio: $stateParams.precio,
      descripcion: $stateParams.descripcion,
-     usuario: $stateParams.usuario
+     usuario: $stateParams.usuario,
+     compra: $stateParams.compra
    });
  }
 

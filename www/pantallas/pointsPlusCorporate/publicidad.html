@@ -36,12 +36,12 @@
      <p>{{registroSimple.descripcion}}</br>{{registroSimple.tiempo}} seg.</p>
     </div>
 
-    <a class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precioSemanal}},'Publicidad - {{registroSimple.descripcion}} - Semanal')" style="background-color: #404040; width:33.33%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+    <a class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precioSemanal}},'Publicidad - {{registroSimple.descripcion}} - Semanal', '{{registroSimple.descripcion}}', {{registroSimple.tiempo}}, 'semanal')" style="background-color: #404040; width:33.33%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
      <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
      <p style="color:#fff">${{registroSimple.precioSemanal}}</p>
     </a>
 
-    <a class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precioMensual}},'Publicidad - {{registroSimple.descripcion}} - Mensual')" style="background-color: #404040; width:33.33%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+    <a class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precioMensual}},'Publicidad - {{registroSimple.descripcion}} - Mensual', '{{registroSimple.descripcion}}', {{registroSimple.tiempo}}, 'mensual')" style="background-color: #404040; width:33.33%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
      <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
      <p style="color:#fff">${{registroSimple.precioMensual}}</p>
     </a>

@@ -8,7 +8,7 @@ aplicacion.controller('promocionesControlador', ['$scope','$state','$firebaseArr
        $scope.lecturaBaseDeDatos = lecturaBaseDeDatos;
      });
 
-     $scope.pagosAbrir = function(precioRecibido,descripcionRecibida){
-      $state.go('detallesFacturacion', {precio:precioRecibido, descripcion:descripcionRecibida});
+     $scope.pagosAbrir = function(precioRecibido,descripcionRecibida, promoPointsRecibidos){
+      $state.go('detallesFacturacion', {precio:precioRecibido, descripcion:descripcionRecibida, compra:{tipoDeCompra: 'promocion', promoPoints: promoPointsRecibidos, tipo:null,tiempo:null,duracionDeCompra:null,idPublicidad:null,urlRecibida:null}});
      }
 }])

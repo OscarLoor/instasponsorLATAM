@@ -39,13 +39,13 @@
     </div>
 
     <!--Si es Par-->
-    <a ng-if="($index%2)==0" class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precio}},'Tarifas - {{registroSimple.promoPoints}} PromoPoints')" style="background-color: #404040; width:50%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+    <a ng-if="($index%2)==0" class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precio}},'Tarifas - {{registroSimple.promoPoints}} PromoPoints',{{registroSimple.promoPoints}})" style="background-color: #404040; width:50%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
      <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
      <p style="color:#fff">${{registroSimple.precio}}</p>
     </a>
 
      <!--Si es impar-->
-        <a ng-if="($index%2)!=0" class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precio}},'Tarifas - {{registroSimple.promoPoints}} PromoPoints')" style="background-color: #515151; width:50%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
+        <a ng-if="($index%2)!=0" class="precioSuscribete" ng-click="pagosAbrir({{registroSimple.precio}},'Tarifas - {{registroSimple.promoPoints}} PromoPoints',{{registroSimple.promoPoints}})" style="background-color: #515151; width:50%; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);" id="hijo">
      <i style="color:#fd314e; font-size: 17px; margin-right: 5px;" class="icon ion-ios-cart"></i>
      <p style="color:#fff;">${{registroSimple.precio}}</p>
     </a>

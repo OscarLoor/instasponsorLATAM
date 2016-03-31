@@ -115,27 +115,33 @@ aplicacion.config(function ($stateProvider, $urlRouterProvider) {
   controller: 'pointsPlusCorporateReportesControlador'
  });
 
+ $stateProvider.state('pointsPlusCorporateSeleccionarArchivo', {
+  url: '/pointsPlusCorporateSeleccionarArchivo/:descripcion/:precio/{compra:json}',
+  templateUrl: 'pantallas/pointsPlusCorporate/SeleccionarArchivo.html',
+  controller: 'pointsPlusCorporateSeleccionarArchivoControlador'
+ });
+
  /*Tipo de pago*/
  $stateProvider.state('seleccionarTipoDePago', {
-  url: '/seleccionarTipoDePago/:precio/:descripcion/{usuario:json}',
+  url: '/seleccionarTipoDePago/:precio/:descripcion/{usuario:json}/{compra:json}',
   templateUrl: 'pantallas/seleccionarTipoDePago.html',
   controller: 'seleccionarTipoDePagoControlador'
  });
 
   $stateProvider.state('tarjetaDeCredito', {
-  url: '/tarjetaDeCredito/:precio/:descripcion/{usuario:json}',
+  url: '/tarjetaDeCredito/:precio/:descripcion/{usuario:json}/{compra:json}',
   templateUrl: 'pantallas/tarjetaDeCredito.html',
   controller: 'tarjetaDeCreditoControlador'
  });
 
  $stateProvider.state('detallesFacturacion', {
- url: '/detallesFacturacion/:precio/:descripcion',
+ url: '/detallesFacturacion/:precio/:descripcion/{compra:json}',
  templateUrl: 'pantallas/detallesFacturacion.html',
  controller: 'detallesFacturacionControlador'
 });
 
 $stateProvider.state('depositoTransferencia', {
-url: '/depositoTransferencia/:precio/:descripcion/{usuario:json}',
+url: '/depositoTransferencia/:precio/:descripcion/{usuario:json}/{compra:json}',
 templateUrl: 'pantallas/depositoTransferencia.html',
 controller: 'depositoTransferenciaControlador'
 });

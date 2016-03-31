@@ -9,8 +9,9 @@ aplicacion.controller('suscribeteControlador', ['$scope','$state','$firebaseArra
       $scope.suscripciones = suscripciones;
     });
 
- $scope.pagosAbrir = function(precioRecibido,descripcionRecibida){
-  $state.go('detallesFacturacion', {precio:precioRecibido, descripcion:descripcionRecibida});
+ $scope.pagosAbrir = function(precioRecibido,descripcionRecibida, promoPointsRecibidos){
+   console.log(promoPointsRecibidos)
+  $state.go('detallesFacturacion', {precio:precioRecibido, descripcion:descripcionRecibida, compra:{tipoDeCompra: 'suscripcion', promoPoints: promoPointsRecibidos, tipo:null,tiempo:null,duracionDeCompra:null,idPublicidad:null,urlRecibida:null}});
  }
 
 }])

@@ -12,8 +12,8 @@ aplicacion.controller('tarjetaDeCreditoControlador', ['$scope', '$state', '$http
   $scope.datosTarjeta.mesDeExpiracion = '11';
   $scope.datosTarjeta.anoDeExpiracion = '2017';
 var myPopup;
-  TCO.loadPubKey('sandbox');
 
+TCO.loadPubKey('sandbox');
   var tokenRequest = function() {
     // Setup token request arguments
     var args = {
@@ -25,10 +25,19 @@ var myPopup;
       expYear: $scope.datosTarjeta.anoDeExpiracion
     };
 
-    // Make the token request
+    /*
+    Envio solicitud de token al servidor
+    */
+
     TCO.requestToken(function(correct) {
+      /*
+      Si el servidor envío el token
+      */
       var token = correct.response.token.token;
 
+      /*
+      Envio la compra con el token entregado
+      */
       // Simple GET request example:
       $http({
         method: 'POST',
@@ -49,7 +58,11 @@ var myPopup;
         }
       }).then(function successCallback(response) {
         /*
-        Si se realizo correctamente la llamada al servidor
+        Si se realizo correctamente la llamada al servidor y este realizo la compra en 2CO
+        */
+
+        /*
+        Guardo la compra en la base de datos
         */
         var referenciaCompra = new Firebase("https://servidorbmn.firebaseio.com/compras/tarjetasDeCredito");
         var lecturaReferenciaCompra = $firebaseArray(referenciaCompra);
@@ -68,8 +81,20 @@ var myPopup;
               descripcion: $stateParams.descripcion,
               timestamp: Firebase.ServerValue.TIMESTAMP,
               idUsuario: parametrosUsuarioFactory.obtenerIdUsuario(),
-              verificado: true
+              verificado: true,
+              tipoDeCompra: $stateParams.compra.tipoDeCompra,
+              promoPoints: $stateParams.compra.promoPoints,
+              tipo:$stateParams.compra.tipo,
+              tiempo:$stateParams.compra.tiempo,
+              duracionDeCompra:$stateParams.compra.duracionDeCompra,
+              idPublicidad:$stateParams.compra.idPublicidad,
+              urlPublicidad: $stateParams.compra.urlPublicidad
             }).then(function(ref) {
+
+              /*
+              Si se agrego correctamente el registro en la base de datos
+              */
+
               /*
 
               FALTA EL CODIGO PARA ACTIVAR LOS DIFERENTES SERVICIOS
@@ -92,35 +117,50 @@ var myPopup;
                 });
 
             }); //add -then
+
+
           }) //$loaded - then
           .catch(function(error) {
+
+            /*
+            Si existe algun error para cargar la referencia con firebase
+            */
+            myPopup.close();
             $ionicPopup.confirm({
                 title: 'ERROR',
                 content: JSON.stringify(error)
               })
               .then(function(result) {});
           }); //$loaded - catch
-        console.log("Compra finalizada respuesta del servidor")
-        console.log(response)
-          // this callback will be called asynchronously
-          // when the response is available
+
       }, function errorCallback(response) {
+
+        /*
+        Si se realizo no se realizo la compra con el servidor en 2CO
+        */
+
         myPopup.close();
         $ionicPopup.confirm({
             title: 'Servidor Error',
             content: JSON.stringify(response)
           })
           .then(function(result) {});
-        console.log("Error")
-        console.log(response)
-          // called asynchronously if an error occurs
-          // or server returns response with an error status.
       });
 
 
     }, function(error) {
+      /*
+      Si existe error con la solicitud de token con el servidor
+      */
+
       if (error.errorCode === 200) {
-        tokenRequest();
+        // This error code indicates that the ajax call failed. We recommend that you retry the token request.
+        myPopup.close();
+        $ionicPopup.confirm({
+            title: 'Fallo con la comunicación',
+            content: 'Se presentó un error con la comunicación, vuelve a intentarlo'
+          })
+          .then(function(result) {});
       } else {
         myPopup.close();
         $ionicPopup.confirm({
@@ -128,8 +168,6 @@ var myPopup;
             content: JSON.stringify(error.errorMsg)
           })
           .then(function(result) {});
-        console.log("Token Error")
-        console.log(error.errorMsg);
       }
     }, args);
   };
@@ -141,6 +179,7 @@ var myPopup;
       template: '<ion-spinner icon="spiral"></ion-spinner>'
     });
     if ($scope.datosTarjeta.numeroDeTarjeta == undefined || $scope.datosTarjeta.CVC == undefined || $scope.datosTarjeta.mesDeExpiracion == undefined || $scope.datosTarjeta.anoDeExpiracion == undefined || $scope.datosTarjeta.numeroDeTarjeta.length == 0 || $scope.datosTarjeta.CVC.length == 0 || $scope.datosTarjeta.mesDeExpiracion.length == 0 || $scope.datosTarjeta.anoDeExpiracion.length == 0) {
+      myPopup.close();
       $ionicPopup.confirm({
           title: 'ERROR',
           content: 'Los campos requeridos están marcados con *'
