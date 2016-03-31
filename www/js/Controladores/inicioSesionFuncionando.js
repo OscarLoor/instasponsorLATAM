@@ -81,8 +81,8 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
                   promoPoints: 0,
                   duplicaTusPuntos: {
                     estado: false,
-                    timestampInicio: '',
-                    timestampFin: ''
+                    timestampInicio: false,
+                    timestampFin: false
                   }
                 });
               }
