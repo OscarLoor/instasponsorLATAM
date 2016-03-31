@@ -89,6 +89,12 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
                     timestampInicio: false,
                     timestampFin: false,
                     promoPoints: false
+                  },
+                  reportes: {
+                    estado: false,
+                    timestampInicio: false,
+                    timestampFin: false,
+                    tipo: false
                   }
                 });
               }
