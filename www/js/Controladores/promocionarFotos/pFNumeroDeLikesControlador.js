@@ -55,7 +55,7 @@ aplicacion.controller('pFNumeroDeLikesControlador', ['$scope', '$state', '$ionic
 
             var referenciaUsuario = new Firebase("https://servidorbmn.firebaseio.com/usuarios/" + $stateParams.idUsuario);
 
-            var lecturaReferenciaUsuario = $firebaseArray(referenciaUsuario);
+            var lecturaReferenciaUsuario = $firebaseObject(referenciaUsuario);
 
             //Muestro una pantalla de carga
             var myPopupDos = $ionicPopup.show({
@@ -72,7 +72,7 @@ aplicacion.controller('pFNumeroDeLikesControlador', ['$scope', '$state', '$ionic
                     lecturaReferenciaUsuario.$loaded()
                       .then(function(x) {
 
-                        if(lecturaReferenciaUsuario[0].$value>=promoPoints){
+                        if(parseInt(lecturaReferenciaUsuario.promoPoints)>=parseInt(promoPoints)){
 
 
                           myPopupDos.close();
@@ -119,7 +119,7 @@ aplicacion.controller('pFNumeroDeLikesControlador', ['$scope', '$state', '$ionic
                                   } else {
                                     //Si todo esta correcto
 
-                                    var promoPointsFinales = parseInt(lecturaReferenciaUsuario[0].$value) - parseInt(promoPoints);
+                                    var promoPointsFinales = parseInt(lecturaReferenciaUsuario.promoPoints) - parseInt(promoPoints);
                                     referenciaUsuario.update({promoPoints: promoPointsFinales});
 
 
@@ -133,7 +133,11 @@ aplicacion.controller('pFNumeroDeLikesControlador', ['$scope', '$state', '$ionic
                                         disableBack: true
                                       });
 
-                                      $state.go('menuPrincipal'); //Redirige hacia una ruta
+                                      $ionicHistory.clearHistory();
+                                      $ionicHistory.clearCache().then(function() {
+                                        $state.go('menuPrincipal');
+                                      });
+
                                     })
                                   }})
 
