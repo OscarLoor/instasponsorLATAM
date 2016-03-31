@@ -78,7 +78,12 @@ aplicacion.controller('iniciarSesionControlador', ['$scope', '$cordovaOauth', '$
               //Si no existe el registro del usuario lo creo en la base de datos de firebase con 0 promoPoints
               if ($scope.lecturaBaseDeDatos.length == 0) {
                 ref.update({
-                  "promoPoints": 0
+                  promoPoints: 0,
+                  duplicaTusPuntos: {
+                    estado: false,
+                    timestampInicio: '',
+                    timestampFin: ''
+                  }
                 });
               }
 
