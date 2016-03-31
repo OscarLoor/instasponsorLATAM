@@ -9,7 +9,23 @@ aplicacion.controller('pointsPlusCorporateReportesControlador', ['$scope','$stat
        $scope.lecturaBaseDeDatos = lecturaBaseDeDatos;
      });
 
-     $scope.pagosAbrir = function(precioRecibido,descripcionRecibida){
-      $state.go('detallesFacturacion', {precio:precioRecibido, descripcion:descripcionRecibida});
+     $scope.pagosAbrir = function(precioRecibido,descripcionRecibida, tipoRecibido){
+       $state.go('detallesFacturacion', {
+         precio: precioRecibido,
+         descripcion: descripcionRecibida,
+         compra: {
+           tipoDeCompra: 'reportes',
+           promoPoints: null,
+           tipo: tipoRecibido, //Silver - Gold - Black
+           tiempo: null,
+           duracionDeCompra: null,
+           idPublicidad: null,
+           urlPublicidad: null
+         }
+       });
      }
+
+
+
+
 }])
