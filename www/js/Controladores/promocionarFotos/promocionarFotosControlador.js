@@ -14,22 +14,30 @@ aplicacion.controller('promocionarFotosControlador', ['$scope', '$state', 'param
     var url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=" + token + "&callback=JSON_CALLBACK";
 
     //Hago la llamada a la API de Instagram
-    $http.jsonp(url).success(function(data) {
 
-      // var nombre = data.data.full_name
-      // var imagenDePerfil = data.data.profile_picture
-      // var idUsuario = data.data.id
+
+    $http.jsonp(url).then(function successCallback(data) {
+      console.log(data)
+        // var nombre = data.data.full_name
+        // var imagenDePerfil = data.data.profile_picture
+        // var idUsuario = data.data.id
       $scope.imagenesRecibidas = [];
       var arregloTotal = [];
-      var contenedorDeImagenes = data.data;
+      var contenedorDeImagenes = data.data.data;
       //
+      //console.log(contenedorDeImagenes)
       for (i = 0; i < contenedorDeImagenes.length; i++) {
-        var objeto = {
-          id: contenedorDeImagenes[i].id,
-          url: contenedorDeImagenes[i].images.low_resolution.url
+        if(contenedorDeImagenes[i].type=='video'){
+          //console.log("Video")
+        }else{
+          var objeto = {
+            id: contenedorDeImagenes[i].id,
+            url: contenedorDeImagenes[i].images.low_resolution.url
+          }
+
+          arregloTotal.push(objeto)
         }
 
-        arregloTotal.push(objeto)
 
       }
 
@@ -57,10 +65,10 @@ aplicacion.controller('promocionarFotosControlador', ['$scope', '$state', 'param
       };
 
       $scope.claseDesactivarSiguientePagina = function() {
-        if(paginaActual === (contadorDePaginasTotales() - 1)){
+        if (paginaActual === (contadorDePaginasTotales() - 1)) {
           return true
         }
-        return  false
+        return false
       };
       // for (var imagen in contenedorDeImagenes){
       //   console.log(JSON.stringify(imagen.id))
@@ -71,6 +79,22 @@ aplicacion.controller('promocionarFotosControlador', ['$scope', '$state', 'param
       // }
 
       myPopup.close();
+    }, function errorCallback(response) {
+      myPopup.close();
+      $ionicPopup.confirm({
+          title: 'ERROR',
+          content: 'No se pudo conectar con la API de instagram: ' + JSON.stringify(response)
+        })
+        .then(function(result) {});
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
+
+
+
+
+    $http.jsonp(url).success(function(data) {
+
     }); //$http
 
     $scope.seleccionarNumeroDeLikes = function(idImagenRecibida, urlRecibida) {
