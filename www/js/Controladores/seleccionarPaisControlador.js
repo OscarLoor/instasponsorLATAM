@@ -1,5 +1,5 @@
 aplicacion.controller('seleccionarPaisControlador', ['$scope','$ionicSideMenuDelegate','$state','$cordovaSQLite','$ionicPlatform','parametrosUsuarioFactory',function ($scope,$ionicSideMenuDelegate,$state, $cordovaSQLite, $ionicPlatform,parametrosUsuarioFactory) {
-  $ionicPlatform.ready(function() {
+  ionic.Platform.ready(function() {
 
     $scope.toggleLeft = function() {
         $ionicSideMenuDelegate.toggleLeft();

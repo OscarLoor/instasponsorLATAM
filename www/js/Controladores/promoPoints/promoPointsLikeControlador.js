@@ -1,5 +1,6 @@
 aplicacion.controller('promoPointsLikeControlador', ['$scope', '$state', '$firebaseArray', '$firebaseObject', 'parametrosUsuarioFactory', '$http', '$ionicPopup', function($scope, $state, $firebaseArray, $firebaseObject, parametrosUsuarioFactory, $http, $ionicPopup) {
 
+  console.log()parametrosUsuarioFactory.obtenerPais();
   //Datos para mostrar en la parte superior sobre el usuario
   $scope.nombre = parametrosUsuarioFactory.obtenerNombre();
   $scope.imagenDePerfil = parametrosUsuarioFactory.obtenerImagenDePerfil();
