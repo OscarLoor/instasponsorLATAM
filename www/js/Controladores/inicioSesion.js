@@ -1,12 +1,4 @@
-aplicacion.controller('iniciarSesionControlador', ['$ionicPlatform', '$scope', '$cordovaOauth', '$http', '$ionicPopup', '$timeout', '$ionicHistory', '$state', '$firebaseArray', '$cordovaSQLite', 'parametrosUsuarioFactory', '$firebaseObject','ionicReady', function($scope, $cordovaOauth, $http, $ionicPlatform, $ionicPopup, $timeout, $ionicHistory, $state, $firebaseArray, $cordovaSQLite, parametrosUsuarioFactory, $firebaseObject, ionicReady) {
-alert("Cargo");
-ionic.Platform.ready(function() {
-  alert("Llamada con window");
-});
-ionicReady().then(function() {
-    alert("Llamada");
-  });
-
+aplicacion.controller('iniciarSesionControlador', ['$ionicPlatform', '$scope', '$cordovaOauth', '$http', '$ionicPopup', '$timeout', '$ionicHistory', '$state', '$firebaseArray', '$cordovaSQLite', 'parametrosUsuarioFactory', '$firebaseObject', function($scope, $cordovaOauth, $http, $ionicPlatform, $ionicPopup, $timeout, $ionicHistory, $state, $firebaseArray, $cordovaSQLite, parametrosUsuarioFactory, $firebaseObject) {
 
   ionic.Platform.ready(function() {
 
@@ -15,7 +7,7 @@ ionicReady().then(function() {
     parametrosUsuarioFactory.actualizarIdUsuario('2981244912');
     parametrosUsuarioFactory.actualizarToken('2981244912.4414c79.632d91df27c64f1797d2362c0279a653');
     parametrosUsuarioFactory.actualizarImagenDePerfil('https://igcdn-photos-b-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-19/12725106_1523062291330441_1327147976_a.jpg');
-alert("Cargo parametros");
+
 
 
     /*Datos base de datos*/
