@@ -3,8 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var aplicacion = angular.module('starter', ['ionic', 'ngCordova', 'ngCordovaOauth', 'firebase'])
-
+var aplicacion = angular.module('starter', ['ionic', 'ngCordova', 'ngCordovaOauth', 'firebase','ngSanitize'])
+aplicacion.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
 aplicacion.run(function($ionicPlatform, $rootScope, $location, $state, parametrosUsuarioFactory, $cordovaSQLite, $ionicPopup) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -84,7 +88,8 @@ aplicacion.run(function($ionicPlatform, $rootScope, $location, $state, parametro
 
   });
 })
-aplicacion.config(function($ionicConfigProvider) {
+aplicacion.config(function($ionicConfigProvider,$sceDelegateProvider) {
   $ionicConfigProvider.backButton.text('')
   $ionicConfigProvider.navBar.alignTitle('center')
+
 })
