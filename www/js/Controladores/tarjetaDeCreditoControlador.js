@@ -12,8 +12,30 @@ aplicacion.controller('tarjetaDeCreditoControlador', ['$scope', '$state', '$http
   $scope.datosTarjeta.mesDeExpiracion = '11';
   $scope.datosTarjeta.anoDeExpiracion = '2017';
 var myPopup;
+myPopup = $ionicPopup.show({
+  title: 'Cargando',
+  template: '<ion-spinner icon="spiral"></ion-spinner>'
+});
+$.getScript('https://www.2checkout.com/checkout/api/2co.min.js', function() {
+                    try {
+                          myPopup.close();
+                            // Pull in the public encryption key for our environment
+                            TCO.loadPubKey('sandbox');
 
-TCO.loadPubKey('sandbox');
+
+                        } catch(e) {
+                          myPopup.close();
+                          $ionicPopup.confirm({
+                              title: 'ERROR',
+                              content: 'Vuelve a intentarlo, o selecciona otro método de pago'
+                            })
+                            .then(function(result) {
+                              $ionicHistory.goBack();
+                            });
+
+                        }
+                });
+
   var tokenRequest = function() {
     // Setup token request arguments
     var args = {
