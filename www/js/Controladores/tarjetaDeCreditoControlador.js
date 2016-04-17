@@ -68,6 +68,10 @@ TCO.loadPubKey('sandbox');
         var lecturaReferenciaCompra = $firebaseArray(referenciaCompra);
         lecturaReferenciaCompra.$loaded()
           .then(function(x) {
+            var verificadoSiNoEsPublicidad = true;
+            if(tipoDeCompra=='publicidad'){
+              verificadoSiNoEsPublicidad = false;
+            }
             lecturaReferenciaCompra.$add({
               apellido: $stateParams.usuario.apellido,
               ciudad: $stateParams.usuario.ciudad,
@@ -81,7 +85,7 @@ TCO.loadPubKey('sandbox');
               descripcion: $stateParams.descripcion,
               timestamp: Firebase.ServerValue.TIMESTAMP,
               idUsuario: parametrosUsuarioFactory.obtenerIdUsuario(),
-              verificado: true,
+              verificado: verificadoSiNoEsPublicidad,
               tipoDeCompra: $stateParams.compra.tipoDeCompra,
               promoPoints: $stateParams.compra.promoPoints,
               tipo:$stateParams.compra.tipo,
